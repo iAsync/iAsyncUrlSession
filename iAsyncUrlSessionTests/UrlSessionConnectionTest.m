@@ -182,7 +182,7 @@
            connection, @selector(URLSession:task:didCompleteWithError:),
            connection.session, nil, nil
         ),
-        @"nil callback should not cause exceptions"
+        @"nil error cannot be received from NSURLSession"
     );
 }
 
@@ -220,5 +220,86 @@
 
     XCTAssertNil( completionResult, @"nil result expected" );
 }
+
+
+-(void)testSessionBecomeInvalidWithError_WorksWith_Nil_CompletionBlock
+{
+    JNUrlSessionConnection* connection =
+    [ [ JNUrlSessionConnection alloc ] initWithSessionConfiguration: self->_config
+                                               sessionCallbackQueue: [ NSOperationQueue currentQueue ]
+                                                        httpRequest: self->_request
+                                                          callbacks: self->_nilCallbacks ];
+    
+    NSError* mockError = [ NSError errorWithDomain: @"test.test.test"
+                                              code: 100500
+                                          userInfo: nil ];
+    
+    XCTAssertNoThrow
+    (
+        objc_msgSend
+        (
+            connection, @selector(URLSession:didBecomeInvalidWithError:),
+            connection.session, mockError
+        ),
+        @"nil callback should not cause exceptions"
+    );
+}
+
+-(void)testSessionBecomeInvalidWithError_Rejects_Nil_ErrorObject
+{
+    JNUrlSessionConnection* connection =
+    [ [ JNUrlSessionConnection alloc ] initWithSessionConfiguration: self->_config
+                                               sessionCallbackQueue: [ NSOperationQueue currentQueue ]
+                                                        httpRequest: self->_request
+                                                          callbacks: self->_nilCallbacks ];
+    
+    XCTAssertThrows
+    (
+     objc_msgSend
+     (
+      connection, @selector(URLSession:didBecomeInvalidWithError:),
+      connection.session, nil
+      ),
+     @"nil error cannot be received from NSURLSession"
+    );
+}
+
+-(void)testSessionBecomeInvalidWithError_ForwardsToCallback_Error
+{
+    __block NSError* completionError  = nil;
+    __block NSURL*   completionResult = nil;
+    
+    self->_nilCallbacks.completionBlock = ^void( NSURL* tmpFileUrl, NSError* downloadError )
+    {
+        completionResult = tmpFileUrl   ;
+        completionError  = downloadError;
+    };
+    
+    
+    JNUrlSessionConnection* connection =
+    [ [ JNUrlSessionConnection alloc ] initWithSessionConfiguration: self->_config
+                                               sessionCallbackQueue: [ NSOperationQueue currentQueue ]
+                                                        httpRequest: self->_request
+                                                          callbacks: self->_nilCallbacks ];
+    
+    NSError* mockError = [ NSError errorWithDomain: @"test.test.test"
+                                              code: 100500
+                                          userInfo: nil ];
+    
+    
+    objc_msgSend
+    (
+     connection, @selector(URLSession:didBecomeInvalidWithError:),
+     connection.session, mockError
+     );
+    
+    XCTAssertTrue( completionError == mockError, @"error pointers mismatch" );
+    XCTAssertEqualObjects( completionError, mockError, @"error object mismatch" );
+    
+    XCTAssertNil( completionResult, @"nil result expected" );
+}
+
+
+
 
 @end
