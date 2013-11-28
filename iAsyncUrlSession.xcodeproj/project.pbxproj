@@ -17,6 +17,7 @@
 		7E3DF2B41847369600230731 /* iAsyncUrlSessionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DF2B31847369600230731 /* iAsyncUrlSessionTests.m */; };
 		7E3DF3621847377A00230731 /* JNUrlSessionConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DF3611847377A00230731 /* JNUrlSessionConnection.m */; };
 		7E3DF365184737E500230731 /* JNUrlSessionConnectionCallbacks.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DF364184737E500230731 /* JNUrlSessionConnectionCallbacks.m */; };
+		7E9CB8C6184765530091D0AE /* JNDownloadProgressInfoPOD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9CB8C5184765530091D0AE /* JNDownloadProgressInfoPOD.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,10 @@
 		7E3DF364184737E500230731 /* JNUrlSessionConnectionCallbacks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNUrlSessionConnectionCallbacks.m; sourceTree = "<group>"; };
 		7E670E0E18473E9500339D12 /* JNUrlSessionBlocks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JNUrlSessionBlocks.h; sourceTree = "<group>"; };
 		7E9CB8C118474B420091D0AE /* JNUrlSessionConnectionBlocks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JNUrlSessionConnectionBlocks.h; sourceTree = "<group>"; };
+		7E9CB8C218474F3E0091D0AE /* iAsyncUrlSessionDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iAsyncUrlSessionDefines.h; sourceTree = "<group>"; };
+		7E9CB8C3184764040091D0AE /* JNDownloadProgressInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JNDownloadProgressInfo.h; sourceTree = "<group>"; };
+		7E9CB8C4184765530091D0AE /* JNDownloadProgressInfoPOD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNDownloadProgressInfoPOD.h; sourceTree = "<group>"; };
+		7E9CB8C5184765530091D0AE /* JNDownloadProgressInfoPOD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNDownloadProgressInfoPOD.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				7E3DF29C1847369600230731 /* iAsyncUrlSession.h */,
+				7E9CB8C218474F3E0091D0AE /* iAsyncUrlSessionDefines.h */,
 				7E3DF29A1847369600230731 /* Supporting Files */,
 				7E670E0E18473E9500339D12 /* JNUrlSessionBlocks.h */,
 				7E9CB8C118474B420091D0AE /* JNUrlSessionConnectionBlocks.h */,
@@ -124,6 +130,9 @@
 				7E3DF3611847377A00230731 /* JNUrlSessionConnection.m */,
 				7E3DF363184737E500230731 /* JNUrlSessionConnectionCallbacks.h */,
 				7E3DF364184737E500230731 /* JNUrlSessionConnectionCallbacks.m */,
+				7E9CB8C3184764040091D0AE /* JNDownloadProgressInfo.h */,
+				7E9CB8C4184765530091D0AE /* JNDownloadProgressInfoPOD.h */,
+				7E9CB8C5184765530091D0AE /* JNDownloadProgressInfoPOD.m */,
 			);
 			path = iAsyncUrlSession;
 			sourceTree = "<group>";
@@ -236,6 +245,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E3DF3621847377A00230731 /* JNUrlSessionConnection.m in Sources */,
+				7E9CB8C6184765530091D0AE /* JNDownloadProgressInfoPOD.m in Sources */,
 				7E3DF365184737E500230731 /* JNUrlSessionConnectionCallbacks.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

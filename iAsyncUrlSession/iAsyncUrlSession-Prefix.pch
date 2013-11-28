@@ -7,6 +7,7 @@
 #ifdef __OBJC__
     #import "JNUrlSessionBlocks.h"
     #import "JNUrlSessionConnectionCallbacks.h"
+    #import "JNDownloadProgressInfo.h"
 
     #import <Foundation/Foundation.h>
 

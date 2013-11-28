@@ -1,7 +1,8 @@
 #import "JNUrlSessionConnection.h"
 
-#define TRUST_ALL_CERTIFICATES 1
+#include "iAsyncUrlSessionDefines.h"
 
+#import "JNDownloadProgressInfoPOD.h"
 
 @interface JNUrlSessionConnection() <NSURLSessionDelegate, NSURLSessionDownloadDelegate>
 
@@ -9,10 +10,16 @@
 @property ( nonatomic ) NSURLSessionDownloadTask* downloadTask;
 
 @property ( nonatomic ) NSURLRequest* httpRequest;
+@property ( nonatomic ) JNUrlSessionConnectionCallbacks* callbacks;
 
 @end
 
 @implementation JNUrlSessionConnection
+
+-(void)dealloc
+{
+    [ self cancel ];
+}
 
 -(instancetype)init
 {
@@ -32,7 +39,8 @@
     }
     
     self->_sessionConfig = sessionConfig;
-    self->_httpRequest = httpRequest;
+    self->_httpRequest   = httpRequest  ;
+    self->_callbacks     = callbacks    ;
     
     [ self setupSessionWithConfig: sessionConfig
                     callbackQueue: callbackQueue ];
@@ -60,9 +68,12 @@
 -(void)cancel
 {
     [ self->_downloadTask cancel ];
-    
-    // notify callbacks
+
+    self->_downloadTask = nil;
+    self->_session = nil;
+    self->_sessionConfig = nil;
 }
+
 
 
 #pragma mark -
@@ -73,12 +84,22 @@
 totalBytesWritten:(int64_t)totalBytesWritten
 totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite
 {
-    NSLog(@"----------[%@]----------", NSStringFromSelector( _cmd ) );
-    NSLog(@"bytesWritten              : %@", [ @( bytesWritten ) stringValue] );
-    NSLog(@"totalBytesWritten         : %@", [ @( totalBytesWritten ) stringValue] );
-    NSLog(@"totalBytesExpectedToWrite : %@", [ @( totalBytesExpectedToWrite ) stringValue] );
-    NSLog(@"taskLength                : %@", [ @( [ downloadTask  countOfBytesReceived ] ) stringValue ] );
-    NSLog(@"--------------------" );
+    JNDownloadToTempFileProgress progressBlock = self->_callbacks.progressBlock;
+
+    JNDownloadProgressInfoPOD* progressInfo = [ JNDownloadProgressInfoPOD new ];
+    {
+        progressInfo.totalBytesCount      = totalBytesExpectedToWrite;
+        progressInfo.downloadedBytesCount = totalBytesWritten        ;
+    }
+    
+    progressBlock( progressInfo );
+    
+//    NSLog(@"----------[%@]----------", NSStringFromSelector( _cmd ) );
+//    NSLog(@"bytesWritten              : %@", [ @( bytesWritten ) stringValue] );
+//    NSLog(@"totalBytesWritten         : %@", [ @( totalBytesWritten ) stringValue] );
+//    NSLog(@"totalBytesExpectedToWrite : %@", [ @( totalBytesExpectedToWrite ) stringValue] );
+//    NSLog(@"taskLength                : %@", [ @( [ downloadTask  countOfBytesReceived ] ) stringValue ] );
+//    NSLog(@"--------------------" );
 }
 
 
@@ -86,22 +107,32 @@ totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite
       downloadTask:(NSURLSessionDownloadTask *)downloadTask
 didFinishDownloadingToURL:(NSURL *)location
 {
-    NSLog( @"CSV file : %@ ", location.absoluteString );
-    NSLog( @"CSV file : %@ ", location.path );
-    NSLog( @"------" );
+    JNDownloadToTempFileFinished completionBlock = self->_callbacks.completionBlock;
+    completionBlock( location, nil );
+    
+//    NSLog( @"CSV file : %@ ", location.absoluteString );
+//    NSLog( @"CSV file : %@ ", location.path );
+//    NSLog( @"------" );
 }
 
 -(void)URLSession:(NSURLSession *)session
              task:(NSURLSessionTask *)task
 didCompleteWithError:(NSError *)error
 {
+    // @adk - ???
+    NSParameterAssert( nil != error );
     
+    JNDownloadToTempFileFinished completionBlock = self->_callbacks.completionBlock;
+    completionBlock( nil, error );
 }
 
 -(void)URLSession:(NSURLSession *)session
 didBecomeInvalidWithError:(NSError *)error
 {
+    NSParameterAssert( nil != error );
     
+    JNDownloadToTempFileFinished completionBlock = self->_callbacks.completionBlock;
+    completionBlock( nil, error );
 }
 
 
@@ -128,28 +159,41 @@ expectedTotalBytes:(int64_t)expectedTotalBytes
 
 #pragma mark -
 #pragma mark NSURLSessionDelegate : HTTPS authentication
-
-
-#if TRUST_ALL_CERTIFICATES
 -(void)URLSession:( NSURLSession* )session
 didReceiveChallenge:( NSURLAuthenticationChallenge* )challenge
 completionHandler:( NS_CERTIFICATE_CHECK_COMPLETION_BLOCK )completionHandler
 {
-    NSString* authMethod = challenge.protectionSpace.authenticationMethod;
-    BOOL isCertificateAuth = [ NSURLAuthenticationMethodServerTrust isEqualToString: authMethod ];
-
-    if ( isCertificateAuth )
+    JNProcessAuthenticationChallengeBlock httpsBlock = self->_callbacks.httpsAuthenticationBlock;
+    if ( nil != httpsBlock )
     {
-        SecTrustRef serverTrust = challenge.protectionSpace.serverTrust;
-        NSURLCredential* credential = [ NSURLCredential credentialForTrust: serverTrust ];
-        
-        completionHandler( NSURLSessionAuthChallengeUseCredential, credential );
+        httpsBlock( challenge, completionHandler );
+        return;
     }
     else
     {
-        completionHandler( NSURLSessionAuthChallengePerformDefaultHandling, nil );
+#if TRUST_ALL_CERTIFICATES_BY_DEFAULT
+        {
+            NSString* authMethod = challenge.protectionSpace.authenticationMethod;
+            BOOL isCertificateAuth = [ NSURLAuthenticationMethodServerTrust isEqualToString: authMethod ];
+
+            if ( isCertificateAuth )
+            {
+                SecTrustRef serverTrust = challenge.protectionSpace.serverTrust;
+                NSURLCredential* credential = [ NSURLCredential credentialForTrust: serverTrust ];
+                
+                completionHandler( NSURLSessionAuthChallengeUseCredential, credential );
+            }
+            else
+            {
+                completionHandler( NSURLSessionAuthChallengePerformDefaultHandling, nil );
+            }
+        }
+#else
+        {
+            completionHandler( NSURLSessionAuthChallengePerformDefaultHandling, nil );
+        }
+#endif
     }
 }
-#endif
 
 @end

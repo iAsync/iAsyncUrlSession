@@ -1,0 +1,6 @@
+#ifndef iAsyncUrlSession_iAsyncUrlSessionDefines_h
+#define iAsyncUrlSession_iAsyncUrlSessionDefines_h
+
+#define TRUST_ALL_CERTIFICATES_BY_DEFAULT 1
+
+#endif
