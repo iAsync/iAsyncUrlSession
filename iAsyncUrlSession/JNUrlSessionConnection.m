@@ -123,7 +123,10 @@ didCompleteWithError:(NSError *)error
     NSParameterAssert( nil != error );
     
     JNDownloadToTempFileFinished completionBlock = self->_callbacks.completionBlock;
-    completionBlock( nil, error );
+    if ( nil != completionBlock )
+    {
+        completionBlock( nil, error );
+    }
 }
 
 -(void)URLSession:(NSURLSession *)session
@@ -132,7 +135,10 @@ didBecomeInvalidWithError:(NSError *)error
     NSParameterAssert( nil != error );
     
     JNDownloadToTempFileFinished completionBlock = self->_callbacks.completionBlock;
-    completionBlock( nil, error );
+    if ( nil != completionBlock )
+    {
+        completionBlock( nil, error );
+    }
 }
 
 

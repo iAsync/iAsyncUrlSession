@@ -1,28 +1,224 @@
 #import <XCTest/XCTest.h>
 
+#import <objc/message.h>
+#import <objc/runtime.h>
+
+#import "iAsyncUrlSessionDefines.h"
+
 #import <iAsyncUrlSession/iAsyncUrlSession.h>
 
 @interface UrlSessionConnectionTest : XCTestCase
-
 @end
 
 @implementation UrlSessionConnectionTest
-
-- (void)setUp
 {
-    [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+    JNUrlSessionConnection* _connection;
+    NSURLSessionConfiguration* _config;
+    
+    NSURLRequest* _request;
+    
+    JNUrlSessionConnectionCallbacks* _nilCallbacks;
+    
+    NSURLProtectionSpace* _certificateSpace;
+    NSURLAuthenticationChallenge* _mockChallenge;
 }
 
-- (void)tearDown
+
+-(void)setUp
 {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
+    [ super setUp ];
+    
+    NSURL* url = [ NSURL URLWithString: @"https://github.com/iAsync/iAsyncUrlSession/raw/master/LICENSE" ];
+    self->_request = [ NSURLRequest requestWithURL: url ];
+    
+    NSURLSessionConfiguration* config = [ NSURLSessionConfiguration defaultSessionConfiguration ];
+    {
+        config.HTTPCookieStorage = [ NSHTTPCookieStorage sharedHTTPCookieStorage ];
+        config.HTTPCookieAcceptPolicy = NSHTTPCookieAcceptPolicyAlways;
+        config.HTTPCookieStorage.cookieAcceptPolicy = NSHTTPCookieAcceptPolicyAlways;
+    }
+    self->_config = config;
+    
+    
+    self->_nilCallbacks = [ JNUrlSessionConnectionCallbacks new ];
+    
+    {
+        self->_certificateSpace = [ [ NSURLProtectionSpace alloc ] initWithHost: @"github.com"
+                                                                           port: 443
+                                                                       protocol: @"https"
+                                                                          realm: @"testing"
+                                                           authenticationMethod: NSURLAuthenticationMethodServerTrust ];
+        
+        self->_mockChallenge =
+        [ [ NSURLAuthenticationChallenge alloc ] initWithProtectionSpace: self->_certificateSpace
+                                                      proposedCredential: nil
+                                                    previousFailureCount: 0
+                                                         failureResponse: nil
+                                                                   error: nil
+                                                                  sender: nil ];
+    }
 }
 
-- (void)testExample
+-(void)tearDown
 {
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+    self->_config = nil;
+    self->_request = nil;
+    
+    [ self->_connection cancel ];
+    self->_connection = nil;
+    
+    [ super tearDown ];
+}
+
+#pragma mark - 
+#pragma mark Init
+-(void)testConnectionRejectsInit
+{
+    XCTAssertThrows
+    (
+        [ [ JNUrlSessionConnection alloc ] init ],
+        @"assert expected"
+    );
+}
+
+
+#pragma mark -
+#pragma mark Https Auth callback
+-(void)testAuthenticateBlockIsOptional
+{
+    JNUrlSessionConnection* connection =
+    [ [ JNUrlSessionConnection alloc ] initWithSessionConfiguration: self->_config
+                                               sessionCallbackQueue: [ NSOperationQueue currentQueue ]
+                                                        httpRequest: self->_request
+                                                          callbacks: self->_nilCallbacks ];
+
+    __block NSURLSessionAuthChallengeDisposition receivedDisposition;
+
+    
+    NS_CERTIFICATE_CHECK_COMPLETION_BLOCK certificateCallback =
+    ^void(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential *credential)
+    {
+        receivedDisposition = disposition;
+    };
+    
+    objc_msgSend
+    (
+       connection, @selector(URLSession:didReceiveChallenge:completionHandler:),
+       connection.session, self->_mockChallenge, certificateCallback
+    );
+    
+    
+#if TRUST_ALL_CERTIFICATES_BY_DEFAULT
+    XCTAssertTrue( NSURLSessionAuthChallengeUseCredential == receivedDisposition, @"credential must be used by default" );
+#else
+    XCTAssertTrue( NSURLSessionAuthChallengePerformDefaultHandling == receivedDisposition, @"default behaviour must not be changed" );
+#endif
+
+}
+
+-(void)testAuthenticateBlockUsesDefaultBehaviour_ForNot_ServerTrust
+{
+    JNUrlSessionConnection* connection =
+    [ [ JNUrlSessionConnection alloc ] initWithSessionConfiguration: self->_config
+                                               sessionCallbackQueue: [ NSOperationQueue currentQueue ]
+                                                        httpRequest: self->_request
+                                                          callbacks: self->_nilCallbacks ];
+    
+    __block NSURLSessionAuthChallengeDisposition receivedDisposition;
+    
+    
+    NS_CERTIFICATE_CHECK_COMPLETION_BLOCK certificateCallback =
+    ^void(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential *credential)
+    {
+        receivedDisposition = disposition;
+    };
+    
+    objc_msgSend
+    (
+     connection, @selector(URLSession:didReceiveChallenge:completionHandler:),
+     connection.session, nil, certificateCallback
+    );
+    
+
+    XCTAssertTrue( NSURLSessionAuthChallengePerformDefaultHandling == receivedDisposition, @"default behaviour must not be changed" );
+}
+
+#pragma mark -
+#pragma mark Download errors
+-(void)testCompleteWithError_WorksWith_Nil_CompletionBlock
+{
+    JNUrlSessionConnection* connection =
+    [ [ JNUrlSessionConnection alloc ] initWithSessionConfiguration: self->_config
+                                               sessionCallbackQueue: [ NSOperationQueue currentQueue ]
+                                                        httpRequest: self->_request
+                                                          callbacks: self->_nilCallbacks ];
+    
+    NSError* mockError = [ NSError errorWithDomain: @"test.test.test"
+                                              code: 100500
+                                          userInfo: nil ];
+    
+    XCTAssertNoThrow(
+        objc_msgSend
+        (
+           connection, @selector(URLSession:task:didCompleteWithError:),
+           connection.session, nil, mockError
+        ),
+        @"nil callback should not cause exceptions"
+    );
+}
+
+-(void)testCompleteWithError_Rejects_Nil_ErrorObject
+{
+    JNUrlSessionConnection* connection =
+    [ [ JNUrlSessionConnection alloc ] initWithSessionConfiguration: self->_config
+                                               sessionCallbackQueue: [ NSOperationQueue currentQueue ]
+                                                        httpRequest: self->_request
+                                                          callbacks: self->_nilCallbacks ];
+    
+    XCTAssertThrows
+    (
+        objc_msgSend
+        (
+           connection, @selector(URLSession:task:didCompleteWithError:),
+           connection.session, nil, nil
+        ),
+        @"nil callback should not cause exceptions"
+    );
+}
+
+-(void)testCompleteWithError_ForwardsToCallback_Error
+{
+    __block NSError* completionError  = nil;
+    __block NSURL*   completionResult = nil;
+    
+    self->_nilCallbacks.completionBlock = ^void( NSURL* tmpFileUrl, NSError* downloadError )
+    {
+        completionResult = tmpFileUrl   ;
+        completionError  = downloadError;
+    };
+    
+    
+    JNUrlSessionConnection* connection =
+    [ [ JNUrlSessionConnection alloc ] initWithSessionConfiguration: self->_config
+                                               sessionCallbackQueue: [ NSOperationQueue currentQueue ]
+                                                        httpRequest: self->_request
+                                                          callbacks: self->_nilCallbacks ];
+    
+    NSError* mockError = [ NSError errorWithDomain: @"test.test.test"
+                                              code: 100500
+                                          userInfo: nil ];
+    
+
+    objc_msgSend
+    (
+        connection, @selector(URLSession:task:didCompleteWithError:),
+        connection.session, nil, mockError
+    );
+
+    XCTAssertTrue( completionError == mockError, @"error pointers mismatch" );
+    XCTAssertEqualObjects( completionError, mockError, @"error object mismatch" );
+
+    XCTAssertNil( completionResult, @"nil result expected" );
 }
 
 @end
