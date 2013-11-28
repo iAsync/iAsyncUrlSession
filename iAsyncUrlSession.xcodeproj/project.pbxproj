@@ -14,7 +14,7 @@
 		7E3DF2A91847369600230731 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E3DF2A81847369600230731 /* UIKit.framework */; };
 		7E3DF2AC1847369600230731 /* libiAsyncUrlSession.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E3DF2941847369600230731 /* libiAsyncUrlSession.a */; };
 		7E3DF2B21847369600230731 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7E3DF2B01847369600230731 /* InfoPlist.strings */; };
-		7E3DF2B41847369600230731 /* iAsyncUrlSessionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DF2B31847369600230731 /* iAsyncUrlSessionTests.m */; };
+		7E3DF2B41847369600230731 /* UrlSessionConnectionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DF2B31847369600230731 /* UrlSessionConnectionTest.m */; };
 		7E3DF3621847377A00230731 /* JNUrlSessionConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DF3611847377A00230731 /* JNUrlSessionConnection.m */; };
 		7E3DF365184737E500230731 /* JNUrlSessionConnectionCallbacks.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DF364184737E500230731 /* JNUrlSessionConnectionCallbacks.m */; };
 		7E9CB8C6184765530091D0AE /* JNDownloadProgressInfoPOD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9CB8C5184765530091D0AE /* JNDownloadProgressInfoPOD.m */; };
@@ -53,7 +53,7 @@
 		7E3DF2A81847369600230731 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		7E3DF2AF1847369600230731 /* iAsyncUrlSessionTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iAsyncUrlSessionTests-Info.plist"; sourceTree = "<group>"; };
 		7E3DF2B11847369600230731 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		7E3DF2B31847369600230731 /* iAsyncUrlSessionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iAsyncUrlSessionTests.m; sourceTree = "<group>"; };
+		7E3DF2B31847369600230731 /* UrlSessionConnectionTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UrlSessionConnectionTest.m; sourceTree = "<group>"; };
 		7E3DF3601847377A00230731 /* JNUrlSessionConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNUrlSessionConnection.h; sourceTree = "<group>"; };
 		7E3DF3611847377A00230731 /* JNUrlSessionConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNUrlSessionConnection.m; sourceTree = "<group>"; };
 		7E3DF363184737E500230731 /* JNUrlSessionConnectionCallbacks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNUrlSessionConnectionCallbacks.h; sourceTree = "<group>"; };
@@ -148,7 +148,7 @@
 		7E3DF2AD1847369600230731 /* iAsyncUrlSessionTests */ = {
 			isa = PBXGroup;
 			children = (
-				7E3DF2B31847369600230731 /* iAsyncUrlSessionTests.m */,
+				7E3DF2B31847369600230731 /* UrlSessionConnectionTest.m */,
 				7E3DF2AE1847369600230731 /* Supporting Files */,
 			);
 			path = iAsyncUrlSessionTests;
@@ -254,7 +254,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E3DF2B41847369600230731 /* iAsyncUrlSessionTests.m in Sources */,
+				7E3DF2B41847369600230731 /* UrlSessionConnectionTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

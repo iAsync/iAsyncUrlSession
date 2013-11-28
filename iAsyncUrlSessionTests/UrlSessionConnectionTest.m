@@ -2,11 +2,11 @@
 
 #import <iAsyncUrlSession/iAsyncUrlSession.h>
 
-@interface iAsyncUrlSessionTests : XCTestCase
+@interface UrlSessionConnectionTest : XCTestCase
 
 @end
 
-@implementation iAsyncUrlSessionTests
+@implementation UrlSessionConnectionTest
 
 - (void)setUp
 {
