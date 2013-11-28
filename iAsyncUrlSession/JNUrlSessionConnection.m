@@ -108,8 +108,13 @@ totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite
       downloadTask:(NSURLSessionDownloadTask *)downloadTask
 didFinishDownloadingToURL:(NSURL *)location
 {
+    NSParameterAssert( nil != location );
+    
     JNDownloadToTempFileFinished completionBlock = self->_callbacks.completionBlock;
-    completionBlock( location, nil );
+    if ( nil != completionBlock )
+    {
+        completionBlock( location, nil );
+    }
     
 //    NSLog( @"CSV file : %@ ", location.absoluteString );
 //    NSLog( @"CSV file : %@ ", location.path );

@@ -316,4 +316,71 @@
     );
 }
 
+#pragma mark -
+#pragma mark Done callback
+-(void)testFinishDownloading_ShouldNot_ReceiveNilUrl
+{
+    JNUrlSessionConnection* connection = self->_connectionWithNilCallbacks;
+    
+    XCTAssertThrows
+    (
+     objc_msgSend
+     (
+      connection, @selector(URLSession:downloadTask:didFinishDownloadingToURL:),
+      connection.session, nil, nil
+      ),
+     @"assert expected for nil URL"
+    );
+}
+
+-(void)testFinishDownloading_Forwards_Url_ToCallback
+{
+    __block NSError* actualError;
+    __block NSURL*   actualResult;
+    
+    JNDownloadToTempFileFinished completion = ^void( NSURL* result, NSError* downloadError )
+    {
+        actualError = downloadError;
+        actualResult = result;
+    };
+    
+    self->_nilCallbacks.completionBlock = completion;
+    JNUrlSessionConnection* connection = self->_connectionWithNilCallbacks;
+    
+    NSURL* tmpFileUrl = [ NSURL URLWithString: @"file:///tmp/downloaded.txt" ];
+
+     objc_msgSend
+     (
+      connection, @selector(URLSession:downloadTask:didFinishDownloadingToURL:),
+      connection.session, nil, tmpFileUrl
+      );
+
+    XCTAssertNil( actualError, @"error mismatch" );
+    XCTAssertEqualObjects( tmpFileUrl, actualResult, @"result mismatch" );
+}
+
+-(void)testFinishDownloading_Should_WorkWith_NilCallback
+{
+    JNUrlSessionConnection* connection = self->_connectionWithNilCallbacks;
+    NSURL* tmpFileUrl = [ NSURL URLWithString: @"file:///tmp/downloaded.txt" ];
+    
+    XCTAssertNoThrow
+    (
+     objc_msgSend
+     (
+      connection, @selector(URLSession:downloadTask:didFinishDownloadingToURL:),
+      connection.session, nil, tmpFileUrl
+      ),
+     @"assert expected for nil URL"
+     );
+}
+
+#pragma mark -
+#pragma mark Progress
+-(void)testProgressCallback
+{
+    XCTFail( @"Not tested" );
+}
+
+
 @end
