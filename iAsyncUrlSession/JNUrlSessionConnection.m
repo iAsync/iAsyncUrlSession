@@ -159,8 +159,7 @@ didBecomeInvalidWithError:(NSError *)error
  didResumeAtOffset:(int64_t)fileOffset
 expectedTotalBytes:(int64_t)expectedTotalBytes
 {
-    // IDLE
-    NSAssert( NO, @"Download suspend/resume is not supported" );
+    NSParameterAssert( 0 == fileOffset );
 }
 
 

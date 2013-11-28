@@ -21,6 +21,9 @@
     
     NSURLProtectionSpace* _certificateSpace;
     NSURLAuthenticationChallenge* _mockChallenge;
+    
+    
+    JNUrlSessionConnection* _connectionWithNilCallbacks;
 }
 
 
@@ -41,6 +44,12 @@
     
     
     self->_nilCallbacks = [ JNUrlSessionConnectionCallbacks new ];
+    self->_connectionWithNilCallbacks =
+    [ [ JNUrlSessionConnection alloc ] initWithSessionConfiguration: self->_config
+                                               sessionCallbackQueue: [ NSOperationQueue currentQueue ]
+                                                        httpRequest: self->_request
+                                                          callbacks: self->_nilCallbacks ];
+    
     
     {
         self->_certificateSpace = [ [ NSURLProtectionSpace alloc ] initWithHost: @"github.com"
@@ -147,11 +156,7 @@
 #pragma mark Download errors
 -(void)testCompleteWithError_WorksWith_Nil_CompletionBlock
 {
-    JNUrlSessionConnection* connection =
-    [ [ JNUrlSessionConnection alloc ] initWithSessionConfiguration: self->_config
-                                               sessionCallbackQueue: [ NSOperationQueue currentQueue ]
-                                                        httpRequest: self->_request
-                                                          callbacks: self->_nilCallbacks ];
+    JNUrlSessionConnection* connection = self->_connectionWithNilCallbacks;
     
     NSError* mockError = [ NSError errorWithDomain: @"test.test.test"
                                               code: 100500
@@ -169,11 +174,7 @@
 
 -(void)testCompleteWithError_Rejects_Nil_ErrorObject
 {
-    JNUrlSessionConnection* connection =
-    [ [ JNUrlSessionConnection alloc ] initWithSessionConfiguration: self->_config
-                                               sessionCallbackQueue: [ NSOperationQueue currentQueue ]
-                                                        httpRequest: self->_request
-                                                          callbacks: self->_nilCallbacks ];
+    JNUrlSessionConnection* connection = self->_connectionWithNilCallbacks;
     
     XCTAssertThrows
     (
@@ -197,12 +198,7 @@
         completionError  = downloadError;
     };
     
-    
-    JNUrlSessionConnection* connection =
-    [ [ JNUrlSessionConnection alloc ] initWithSessionConfiguration: self->_config
-                                               sessionCallbackQueue: [ NSOperationQueue currentQueue ]
-                                                        httpRequest: self->_request
-                                                          callbacks: self->_nilCallbacks ];
+    JNUrlSessionConnection* connection = self->_connectionWithNilCallbacks;
     
     NSError* mockError = [ NSError errorWithDomain: @"test.test.test"
                                               code: 100500
@@ -224,11 +220,7 @@
 
 -(void)testSessionBecomeInvalidWithError_WorksWith_Nil_CompletionBlock
 {
-    JNUrlSessionConnection* connection =
-    [ [ JNUrlSessionConnection alloc ] initWithSessionConfiguration: self->_config
-                                               sessionCallbackQueue: [ NSOperationQueue currentQueue ]
-                                                        httpRequest: self->_request
-                                                          callbacks: self->_nilCallbacks ];
+    JNUrlSessionConnection* connection = self->_connectionWithNilCallbacks;
     
     NSError* mockError = [ NSError errorWithDomain: @"test.test.test"
                                               code: 100500
@@ -247,11 +239,7 @@
 
 -(void)testSessionBecomeInvalidWithError_Rejects_Nil_ErrorObject
 {
-    JNUrlSessionConnection* connection =
-    [ [ JNUrlSessionConnection alloc ] initWithSessionConfiguration: self->_config
-                                               sessionCallbackQueue: [ NSOperationQueue currentQueue ]
-                                                        httpRequest: self->_request
-                                                          callbacks: self->_nilCallbacks ];
+    JNUrlSessionConnection* connection = self->_connectionWithNilCallbacks;
     
     XCTAssertThrows
     (
@@ -276,11 +264,7 @@
     };
     
     
-    JNUrlSessionConnection* connection =
-    [ [ JNUrlSessionConnection alloc ] initWithSessionConfiguration: self->_config
-                                               sessionCallbackQueue: [ NSOperationQueue currentQueue ]
-                                                        httpRequest: self->_request
-                                                          callbacks: self->_nilCallbacks ];
+    JNUrlSessionConnection* connection = self->_connectionWithNilCallbacks;
     
     NSError* mockError = [ NSError errorWithDomain: @"test.test.test"
                                               code: 100500
@@ -300,6 +284,36 @@
 }
 
 
+-(void)testConnection_ShouldNot_ReceiveResumeEvents
+{
+    JNUrlSessionConnection* connection = self->_connectionWithNilCallbacks;
 
+    // constants with types must be used
+    // to make objc_msgSend() work properly
+    const int64_t zero = 0;
+    const int64_t offset = 243;
+    const int64_t total = 100500;
+    
+    XCTAssertNoThrow
+    (
+     objc_msgSend
+     (
+      connection, @selector(URLSession:downloadTask:didResumeAtOffset:expectedTotalBytes:),
+      connection.session, nil, zero, total
+      ),
+     @"assert expected for non zero offset"
+     );
+    
+    
+    XCTAssertThrows
+    (
+     objc_msgSend
+     (
+      connection, @selector(URLSession:downloadTask:didResumeAtOffset:expectedTotalBytes:),
+      connection.session, nil, offset, total
+      ),
+     @"assert expected for non zero offset"
+    );
+}
 
 @end
