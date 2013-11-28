@@ -18,6 +18,7 @@
 
 -(void)dealloc
 {
+    self->_callbacks = nil;
     [ self cancel ];
 }
 
