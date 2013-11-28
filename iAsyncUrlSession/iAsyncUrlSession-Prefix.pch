@@ -1,0 +1,15 @@
+
+// pure C
+
+#ifdef __cplusplus
+#endif // cpp
+
+#ifdef __OBJC__
+    #import "JNUrlSessionBlocks.h"
+    #import "JNUrlSessionConnectionCallbacks.h"
+
+    #import <Foundation/Foundation.h>
+
+    #ifdef __cplusplus
+    #endif // Obj-C++
+#endif // Obj-C
