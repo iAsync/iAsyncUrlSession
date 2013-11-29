@@ -13,7 +13,6 @@
 
 @implementation UrlSessionConnectionTest
 {
-    JNUrlSessionConnection* _connection;
     NSURLSessionConfiguration* _config;
     
     NSURLRequest* _request;
@@ -73,9 +72,6 @@
 {
     self->_config = nil;
     self->_request = nil;
-    
-    [ self->_connection cancel ];
-    self->_connection = nil;
     
     [ super tearDown ];
 }

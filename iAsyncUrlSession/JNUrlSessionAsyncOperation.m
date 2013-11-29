@@ -2,11 +2,14 @@
 
 #import "JNUrlSessionConnection.h"
 
+@interface JNUrlSessionAsyncOperation()
+
+@property ( nonatomic ) JNUrlSessionConnection* connection;
+@property ( nonatomic, copy ) JFFAsyncOperationInterfaceCancelHandler cancelHandler;
+
+@end
+
 @implementation JNUrlSessionAsyncOperation
-{
-    JNUrlSessionConnection* _connection;
-    JFFAsyncOperationInterfaceCancelHandler _cancelHandler;
-}
 
 #pragma mark -
 #pragma mark Object Lifecycle
@@ -25,6 +28,8 @@
 
 -(instancetype)initWithUrlSessionConnection:( JNUrlSessionConnection* )connection
 {
+    NSParameterAssert( nil != connection );
+    
     self = [ super init ];
     if ( nil == self )
     {
@@ -90,18 +95,34 @@
 
 #pragma mark -
 #pragma mark JFFAsyncOperationInterface
--(void)asyncOperationWithResultHandler:(JFFAsyncOperationInterfaceResultHandler)handler
-                         cancelHandler:(JFFAsyncOperationInterfaceCancelHandler)cancelHandler
-                       progressHandler:(JFFAsyncOperationInterfaceProgressHandler)progress
+-(void)initializeWithResultHandler:(JFFAsyncOperationInterfaceResultHandler)handler
+                     cancelHandler:(JFFAsyncOperationInterfaceCancelHandler)cancelHandler
+                   progressHandler:(JFFAsyncOperationInterfaceProgressHandler)progress
 {
-    self->_cancelHandler = [ cancelHandler copy ];
+    self.cancelHandler = cancelHandler;
+    
+    // For unit testing
+    if ( ![ self->_connection isMemberOfClass: [ JNUrlSessionConnection class ] ] )
+    {
+        return;
+    }
     
     JNUrlSessionConnectionCallbacks* connectionCallbacks = self->_connection.callbacks;
     {
         connectionCallbacks.completionBlock = [ self hookConnectionCompletionWithBlock: handler  ];
         connectionCallbacks.progressBlock   = [ self hookConnectionProgressWithBlock  : progress ];
     }
-    
+}
+
+
+-(void)asyncOperationWithResultHandler:(JFFAsyncOperationInterfaceResultHandler)handler
+                         cancelHandler:(JFFAsyncOperationInterfaceCancelHandler)cancelHandler
+                       progressHandler:(JFFAsyncOperationInterfaceProgressHandler)progress
+{
+    [ self initializeWithResultHandler: handler
+                         cancelHandler: cancelHandler
+                       progressHandler: progress ];
+
     [ self->_connection start ];
 }
 
