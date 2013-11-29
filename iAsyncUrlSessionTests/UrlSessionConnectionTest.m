@@ -418,8 +418,6 @@
     
     
     SEL delegateMethod = @selector(URLSession:downloadTask:didWriteData:totalBytesWritten:totalBytesExpectedToWrite:);
-    
-
     objc_msgSend
     (
         connection, delegateMethod,
