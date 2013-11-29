@@ -17,6 +17,8 @@
 		7E3DF3621847377A00230731 /* JNUrlSessionConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DF3611847377A00230731 /* JNUrlSessionConnection.m */; };
 		7E3DF365184737E500230731 /* JNUrlSessionConnectionCallbacks.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DF364184737E500230731 /* JNUrlSessionConnectionCallbacks.m */; };
 		7E9CB8C6184765530091D0AE /* JNDownloadProgressInfoPOD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9CB8C5184765530091D0AE /* JNDownloadProgressInfoPOD.m */; };
+		7ECBF31D1848920700256A05 /* JNUrlSessionAsyncOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECBF31C1848920700256A05 /* JNUrlSessionAsyncOperation.m */; };
+		7ED50165184894D100289520 /* InitSessionAsyncOperationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED50164184894D100289520 /* InitSessionAsyncOperationTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +28,97 @@
 			proxyType = 1;
 			remoteGlobalIDString = 7E3DF2931847369600230731;
 			remoteInfo = iAsyncUrlSession;
+		};
+		7ECBF2EF1848918D00256A05 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7ECBF2E81848918D00256A05 /* JFFNetwork.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8D5AE6DB13F3E6C600EB6143;
+			remoteInfo = JFFNetwork;
+		};
+		7ECBF2F11848918D00256A05 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7ECBF2E81848918D00256A05 /* JFFNetwork.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 65802B22148BFC230040A93A;
+			remoteInfo = JFFNetworkMacOS;
+		};
+		7ECBF2F31848918D00256A05 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7ECBF2E81848918D00256A05 /* JFFNetwork.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 539103B714A88BCA007315A3;
+			remoteInfo = "JFFNetwork-clang";
+		};
+		7ECBF2F51848918D00256A05 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7ECBF2E81848918D00256A05 /* JFFNetwork.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7E8F204314F9494300588C7D;
+			remoteInfo = JFFNetworkFW;
+		};
+		7ECBF2FE1848919900256A05 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7ECBF2F71848919900256A05 /* JFFAsyncOperations.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
+			remoteInfo = JFFAsyncOperations;
+		};
+		7ECBF3001848919900256A05 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7ECBF2F71848919900256A05 /* JFFAsyncOperations.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5391037B14A88BB5007315A3;
+			remoteInfo = "JFFAsyncOperations-clang";
+		};
+		7ECBF3021848919900256A05 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7ECBF2F71848919900256A05 /* JFFAsyncOperations.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7E8F20C914F94BDF00588C7D;
+			remoteInfo = JFFAsyncOperationsFW;
+		};
+		7ECBF30F184891A500256A05 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7ECBF304184891A400256A05 /* JFFUtils.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
+			remoteInfo = JFFUtils;
+		};
+		7ECBF311184891A500256A05 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7ECBF304184891A400256A05 /* JFFUtils.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 65802A5B148BF2930040A93A;
+			remoteInfo = JFFUtilsMacOS;
+		};
+		7ECBF313184891A500256A05 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7ECBF304184891A400256A05 /* JFFUtils.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5391044314A88C04007315A3;
+			remoteInfo = "JFFUtils-clang";
+		};
+		7ECBF315184891A500256A05 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7ECBF304184891A400256A05 /* JFFUtils.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7E57F42414F93738002D139B;
+			remoteInfo = JFFUtilsFW;
+		};
+		7ECBF317184891A500256A05 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7ECBF304184891A400256A05 /* JFFUtils.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CE444A1C1608609100DD85B0;
+			remoteInfo = JFFUtilsTest;
+		};
+		7ECBF319184891A500256A05 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7ECBF304184891A400256A05 /* JFFUtils.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7ED3CB1516E6387B00E5A00F;
+			remoteInfo = "JFFUtilsTest-CI";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -62,6 +155,12 @@
 		7E9CB8C3184764040091D0AE /* JNDownloadProgressInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JNDownloadProgressInfo.h; sourceTree = "<group>"; };
 		7E9CB8C4184765530091D0AE /* JNDownloadProgressInfoPOD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNDownloadProgressInfoPOD.h; sourceTree = "<group>"; };
 		7E9CB8C5184765530091D0AE /* JNDownloadProgressInfoPOD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNDownloadProgressInfoPOD.m; sourceTree = "<group>"; };
+		7ECBF2E81848918D00256A05 /* JFFNetwork.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JFFNetwork.xcodeproj; path = ../JFFLibrary/lib/JFFNetwork/JFFNetwork.xcodeproj; sourceTree = "<group>"; };
+		7ECBF2F71848919900256A05 /* JFFAsyncOperations.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JFFAsyncOperations.xcodeproj; path = ../JFFLibrary/lib/JFFAsyncOperations/JFFAsyncOperations.xcodeproj; sourceTree = "<group>"; };
+		7ECBF304184891A400256A05 /* JFFUtils.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JFFUtils.xcodeproj; path = ../JFFLibrary/lib/JFFUtils/JFFUtils.xcodeproj; sourceTree = "<group>"; };
+		7ECBF31B1848920700256A05 /* JNUrlSessionAsyncOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNUrlSessionAsyncOperation.h; sourceTree = "<group>"; };
+		7ECBF31C1848920700256A05 /* JNUrlSessionAsyncOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNUrlSessionAsyncOperation.m; sourceTree = "<group>"; };
+		7ED50164184894D100289520 /* InitSessionAsyncOperationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitSessionAsyncOperationTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +207,7 @@
 		7E3DF2961847369600230731 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7ECBF2E71848916D00256A05 /* iAsync */,
 				7E3DF2971847369600230731 /* Foundation.framework */,
 				7E3DF2A51847369600230731 /* XCTest.framework */,
 			);
@@ -129,6 +229,8 @@
 				7E9CB8C3184764040091D0AE /* JNDownloadProgressInfo.h */,
 				7E9CB8C4184765530091D0AE /* JNDownloadProgressInfoPOD.h */,
 				7E9CB8C5184765530091D0AE /* JNDownloadProgressInfoPOD.m */,
+				7ECBF31B1848920700256A05 /* JNUrlSessionAsyncOperation.h */,
+				7ECBF31C1848920700256A05 /* JNUrlSessionAsyncOperation.m */,
 			);
 			path = iAsyncUrlSession;
 			sourceTree = "<group>";
@@ -145,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				7E3DF2B31847369600230731 /* UrlSessionConnectionTest.m */,
+				7ED50164184894D100289520 /* InitSessionAsyncOperationTest.m */,
 				7E3DF2AE1847369600230731 /* Supporting Files */,
 			);
 			path = iAsyncUrlSessionTests;
@@ -157,6 +260,50 @@
 				7E3DF2B01847369600230731 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7ECBF2E71848916D00256A05 /* iAsync */ = {
+			isa = PBXGroup;
+			children = (
+				7ECBF304184891A400256A05 /* JFFUtils.xcodeproj */,
+				7ECBF2F71848919900256A05 /* JFFAsyncOperations.xcodeproj */,
+				7ECBF2E81848918D00256A05 /* JFFNetwork.xcodeproj */,
+			);
+			name = iAsync;
+			sourceTree = "<group>";
+		};
+		7ECBF2E91848918D00256A05 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7ECBF2F01848918D00256A05 /* libJFFNetwork.a */,
+				7ECBF2F21848918D00256A05 /* libJFFNetworkMacOS.a */,
+				7ECBF2F41848918D00256A05 /* libJFFNetwork-clang.a */,
+				7ECBF2F61848918D00256A05 /* JFFNetworkFW.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7ECBF2F81848919900256A05 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7ECBF2FF1848919900256A05 /* libJFFAsyncOperations.a */,
+				7ECBF3011848919900256A05 /* libJFFAsyncOperations-clang.a */,
+				7ECBF3031848919900256A05 /* JFFAsyncOperationsFW.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7ECBF305184891A400256A05 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7ECBF310184891A500256A05 /* libJFFUtils.a */,
+				7ECBF312184891A500256A05 /* libJFFUtilsMacOS.a */,
+				7ECBF314184891A500256A05 /* libJFFUtils-clang.a */,
+				7ECBF316184891A500256A05 /* JFFUtilsFW.framework */,
+				7ECBF318184891A500256A05 /* JFFUtilsTest.octest */,
+				7ECBF31A184891A500256A05 /* JFFUtilsTest-CI.octest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -216,6 +363,20 @@
 			mainGroup = 7E3DF28B1847369600230731;
 			productRefGroup = 7E3DF2951847369600230731 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 7ECBF2F81848919900256A05 /* Products */;
+					ProjectRef = 7ECBF2F71848919900256A05 /* JFFAsyncOperations.xcodeproj */;
+				},
+				{
+					ProductGroup = 7ECBF2E91848918D00256A05 /* Products */;
+					ProjectRef = 7ECBF2E81848918D00256A05 /* JFFNetwork.xcodeproj */;
+				},
+				{
+					ProductGroup = 7ECBF305184891A400256A05 /* Products */;
+					ProjectRef = 7ECBF304184891A400256A05 /* JFFUtils.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				7E3DF2931847369600230731 /* iAsyncUrlSession */,
@@ -223,6 +384,100 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		7ECBF2F01848918D00256A05 /* libJFFNetwork.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libJFFNetwork.a;
+			remoteRef = 7ECBF2EF1848918D00256A05 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7ECBF2F21848918D00256A05 /* libJFFNetworkMacOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libJFFNetworkMacOS.a;
+			remoteRef = 7ECBF2F11848918D00256A05 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7ECBF2F41848918D00256A05 /* libJFFNetwork-clang.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libJFFNetwork-clang.a";
+			remoteRef = 7ECBF2F31848918D00256A05 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7ECBF2F61848918D00256A05 /* JFFNetworkFW.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework.static;
+			path = JFFNetworkFW.framework;
+			remoteRef = 7ECBF2F51848918D00256A05 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7ECBF2FF1848919900256A05 /* libJFFAsyncOperations.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libJFFAsyncOperations.a;
+			remoteRef = 7ECBF2FE1848919900256A05 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7ECBF3011848919900256A05 /* libJFFAsyncOperations-clang.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libJFFAsyncOperations-clang.a";
+			remoteRef = 7ECBF3001848919900256A05 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7ECBF3031848919900256A05 /* JFFAsyncOperationsFW.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework.static;
+			path = JFFAsyncOperationsFW.framework;
+			remoteRef = 7ECBF3021848919900256A05 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7ECBF310184891A500256A05 /* libJFFUtils.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libJFFUtils.a;
+			remoteRef = 7ECBF30F184891A500256A05 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7ECBF312184891A500256A05 /* libJFFUtilsMacOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libJFFUtilsMacOS.a;
+			remoteRef = 7ECBF311184891A500256A05 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7ECBF314184891A500256A05 /* libJFFUtils-clang.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libJFFUtils-clang.a";
+			remoteRef = 7ECBF313184891A500256A05 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7ECBF316184891A500256A05 /* JFFUtilsFW.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework.static;
+			path = JFFUtilsFW.framework;
+			remoteRef = 7ECBF315184891A500256A05 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7ECBF318184891A500256A05 /* JFFUtilsTest.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = JFFUtilsTest.octest;
+			remoteRef = 7ECBF317184891A500256A05 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7ECBF31A184891A500256A05 /* JFFUtilsTest-CI.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "JFFUtilsTest-CI.octest";
+			remoteRef = 7ECBF319184891A500256A05 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		7E3DF2A21847369600230731 /* Resources */ = {
@@ -241,6 +496,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E3DF3621847377A00230731 /* JNUrlSessionConnection.m in Sources */,
+				7ECBF31D1848920700256A05 /* JNUrlSessionAsyncOperation.m in Sources */,
 				7E9CB8C6184765530091D0AE /* JNDownloadProgressInfoPOD.m in Sources */,
 				7E3DF365184737E500230731 /* JNUrlSessionConnectionCallbacks.m in Sources */,
 			);
@@ -251,6 +507,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E3DF2B41847369600230731 /* UrlSessionConnectionTest.m in Sources */,
+				7ED50165184894D100289520 /* InitSessionAsyncOperationTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,6 +583,8 @@
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					.,
+					../iAsync/lib,
+					../JFFLibrary/lib,
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
@@ -377,6 +636,8 @@
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					.,
+					../iAsync/lib,
+					../JFFLibrary/lib,
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				SDKROOT = iphoneos;
@@ -499,6 +760,8 @@
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					.,
+					../iAsync/lib,
+					../JFFLibrary/lib,
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;

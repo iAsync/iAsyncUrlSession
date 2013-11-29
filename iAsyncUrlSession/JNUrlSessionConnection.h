@@ -12,6 +12,9 @@
 @property ( nonatomic, readonly ) NSURLSessionConfiguration* sessionConfig;
 @property ( nonatomic, readonly ) NSURLSession* session;
 
+// @adk : used for modifying callbacks in JNUrlSessionAsyncOperation
+@property ( nonatomic, readonly ) JNUrlSessionConnectionCallbacks* callbacks;
+
 -(void)start;
 -(void)cancel;
 
