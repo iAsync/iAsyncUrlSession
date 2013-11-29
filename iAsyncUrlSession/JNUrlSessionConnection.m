@@ -99,13 +99,6 @@ totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite
     }
     
     progressBlock( progressInfo );
-    
-//    NSLog(@"----------[%@]----------", NSStringFromSelector( _cmd ) );
-//    NSLog(@"bytesWritten              : %@", [ @( bytesWritten ) stringValue] );
-//    NSLog(@"totalBytesWritten         : %@", [ @( totalBytesWritten ) stringValue] );
-//    NSLog(@"totalBytesExpectedToWrite : %@", [ @( totalBytesExpectedToWrite ) stringValue] );
-//    NSLog(@"taskLength                : %@", [ @( [ downloadTask  countOfBytesReceived ] ) stringValue ] );
-//    NSLog(@"--------------------" );
 }
 
 
@@ -120,10 +113,6 @@ didFinishDownloadingToURL:(NSURL *)location
     {
         completionBlock( location, nil );
     }
-    
-//    NSLog( @"CSV file : %@ ", location.absoluteString );
-//    NSLog( @"CSV file : %@ ", location.path );
-//    NSLog( @"------" );
 }
 
 -(void)URLSession:(NSURLSession *)session
@@ -152,15 +141,6 @@ didBecomeInvalidWithError:(NSError *)error
     }
 }
 
-
-//#pragma mark -
-//#pragma mark NSURLSessionDelegate : Redirect
-//- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task
-//willPerformHTTPRedirection:(NSHTTPURLResponse *)response
-//        newRequest:(NSURLRequest *)request
-// completionHandler:(void (^)(NSURLRequest *))completionHandler
-//{
-//}
 
 #pragma mark -
 #pragma mark NSURLSessionDelegate : Restart download
