@@ -12,6 +12,8 @@
 @property ( nonatomic, readonly ) NSURLSessionConfiguration* sessionConfig;
 @property ( nonatomic, readonly ) NSURLSession* session;
 
+@property ( nonatomic ) BOOL shouldCopyTmpFileToCaches;
+
 // @adk : used for modifying callbacks in JNUrlSessionAsyncOperation
 @property ( nonatomic, readonly ) JNUrlSessionConnectionCallbacks* callbacks;
 

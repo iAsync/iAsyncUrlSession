@@ -119,14 +119,35 @@ didFinishDownloadingToURL:(NSURL *)location
 {
     NSParameterAssert( nil != location );
     
+    if ( self->_shouldCopyTmpFileToCaches )
+    {
+        JFFAsyncOperation asyncCopy = [ [ self class ] asyncCopyFileToCaches: location ];
+        asyncCopy( nil, nil, ^void( NSURL* tmpFileInCaches, NSError* copyError )
+        {
+            [ self onSuccessfulDownloadToTmpFile: tmpFileInCaches
+                                   copyFileError: copyError ];
+        } );
+    }
+    else
+    {
+        [ self onSuccessfulDownloadToTmpFile: location
+                               copyFileError: nil ];
+    }
+}
+
+-(void)onSuccessfulDownloadToTmpFile:(NSURL *)tmpFileUrl
+                       copyFileError:( NSError* )copyFileError
+{
     JNDownloadToTempFileFinished completionBlock = self->_callbacks.completionBlock;
     if ( nil != completionBlock )
     {
-        completionBlock( location, nil );
+        completionBlock( tmpFileUrl, nil );
     }
     
     [ self cleanup ];
 }
+
+
 
 -(void)URLSession:(NSURLSession *)session
              task:(NSURLSessionTask *)task
@@ -227,17 +248,45 @@ completionHandler:( NS_CERTIFICATE_CHECK_COMPLETION_BLOCK )completionHandler
 
 #pragma mark -
 #pragma mark Utils
-+(void)copyFileToCaches:( NSURL* )tmpFileUrl
++(NSURL*)copyFileToCaches:( NSURL* )tmpFileUrl
+                    error:( NSError** )error
 {
+    // TODO : rewrite copypaste from Apple's example
     
+    NSFileManager* fileManager = [NSFileManager defaultManager];
+    
+    NSArray* URLs = [ fileManager URLsForDirectory: NSCachesDirectory
+                                         inDomains: NSUserDomainMask ];
+    NSURL* cachesDirectory = URLs[0];
+    
+    
+    NSURL* downloadURL = tmpFileUrl;
+    NSURL* originalURL = tmpFileUrl;
+    NSURL* destinationURL = [ cachesDirectory URLByAppendingPathComponent: [ originalURL lastPathComponent ] ];
+    NSError* errorCopy;
+    
+    // For the purposes of testing, remove any esisting file at the destination.
+    [ fileManager removeItemAtURL: destinationURL
+                            error: NULL ];
+    BOOL success = [ fileManager copyItemAtURL: downloadURL
+                                         toURL: destinationURL
+                                         error: &errorCopy ];
+    if ( success )
+    {
+        return destinationURL;
+    }
+    else
+    {
+        return nil;
+    }
 }
 
 +(JFFAsyncOperation)asyncCopyFileToCaches:( NSURL* )tmpFileUrl
 {
     return asyncOperationWithSyncOperation(^id(NSError *__autoreleasing *outError)
     {
-        [ self copyFileToCaches: tmpFileUrl ];
-        return [ NSNull null ];
+        return [ self copyFileToCaches: tmpFileUrl
+                                 error: outError ];
     } );
 }
 
