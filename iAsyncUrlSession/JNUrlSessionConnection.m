@@ -86,7 +86,12 @@ totalBytesWritten:(int64_t)totalBytesWritten
 totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite
 {
     JNDownloadToTempFileProgress progressBlock = self->_callbacks.progressBlock;
-
+    if ( nil == progressBlock )
+    {
+        return;
+    }
+    
+    
     JNDownloadProgressInfoPOD* progressInfo = [ JNDownloadProgressInfoPOD new ];
     {
         progressInfo.totalBytesCount      = totalBytesExpectedToWrite;

@@ -5,6 +5,7 @@
 
 #import "iAsyncUrlSessionDefines.h"
 
+#import "JNDownloadProgressInfoPOD.h"
 #import <iAsyncUrlSession/iAsyncUrlSession.h>
 
 @interface UrlSessionConnectionTest : XCTestCase
@@ -377,9 +378,60 @@
 
 #pragma mark -
 #pragma mark Progress
--(void)testProgressCallback
+-(void)testProgressCallbackCanBeNil
 {
-    XCTFail( @"Not tested" );
+    JNUrlSessionConnection* connection = self->_connectionWithNilCallbacks;
+    
+    const int64_t bytesWritten              = 150;
+    const int64_t totalBytesWritten         = 500;
+    const int64_t totalBytesExpectedToWrite = 3872;
+    
+    
+    SEL delegateMethod = @selector(URLSession:downloadTask:didWriteData:totalBytesWritten:totalBytesExpectedToWrite:);
+
+    XCTAssertNoThrow
+    (
+        objc_msgSend
+        (
+           connection, delegateMethod,
+           connection.session, nil, bytesWritten, totalBytesWritten, totalBytesExpectedToWrite
+        ),
+        @"nil progress callback is ok"
+    );
+}
+
+-(void)testProgressCallback_Receives_totalBytesWritten_AND_totalBytesExpectedToWrite
+{
+    __block id<JNDownloadProgressInfo> receivedProgressInfo = nil;
+    
+    JNDownloadToTempFileProgress progressBlock = ^void( id<JNDownloadProgressInfo> progressInfo )
+    {
+        receivedProgressInfo = progressInfo;
+    };
+    self->_nilCallbacks.progressBlock = progressBlock;
+    JNUrlSessionConnection* connection = self->_connectionWithNilCallbacks;
+
+    
+    const int64_t bytesWritten              = 150;
+    const int64_t totalBytesWritten         = 500;
+    const int64_t totalBytesExpectedToWrite = 3872;
+    
+    
+    SEL delegateMethod = @selector(URLSession:downloadTask:didWriteData:totalBytesWritten:totalBytesExpectedToWrite:);
+    
+
+    objc_msgSend
+    (
+        connection, delegateMethod,
+        connection.session, nil, bytesWritten, totalBytesWritten, totalBytesExpectedToWrite
+    );
+    
+    XCTAssertNotNil( receivedProgressInfo, @"valid progress info expected" );
+    XCTAssertTrue( [ receivedProgressInfo isMemberOfClass: [ JNDownloadProgressInfoPOD class ] ], @"progress info class mismatch" );
+    
+    
+    XCTAssertTrue( [ receivedProgressInfo downloadedBytesCount ] == totalBytesWritten, @"downloadedBytesCount mismatch" );
+    XCTAssertTrue( [ receivedProgressInfo totalBytesCount ] == totalBytesExpectedToWrite, @"totalBytesExpectedToWrite mismatch" );
 }
 
 
