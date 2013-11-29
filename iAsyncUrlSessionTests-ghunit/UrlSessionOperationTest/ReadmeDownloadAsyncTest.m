@@ -30,6 +30,7 @@
 -(void)testReadmeIsDownloadedCorrectly
 {
     __block NSURL* tmpFileUrl = nil;
+    __block NSData* receivedReadme = nil;
     
     SEL testMethod = _cmd;
     [ self prepare: testMethod ];
@@ -41,6 +42,7 @@
     loader( nil, nil, ^void( id result, NSError* error )
     {
         tmpFileUrl = result;
+        receivedReadme = [ NSData dataWithContentsOfURL: tmpFileUrl ];
         
         [ self notify: kGHUnitWaitStatusSuccess
           forSelector: testMethod ];
@@ -48,9 +50,39 @@
     
     [ self waitForStatus: kGHUnitWaitStatusSuccess
                  timeout: 1000 ];
-    
-    NSData* receivedReadme = [ NSData dataWithContentsOfURL: tmpFileUrl ];
+
+    // does not work
+//    receivedReadme = [ NSData dataWithContentsOfURL: tmpFileUrl ];
     GHAssertTrue( [ self->_expectedReadme isEqualToData: receivedReadme ], @"downloaded content mismatch" );
 }
+
+-(void)testReadmeIsDownloadedCorrectlyAndAccessibleOutsideCallbacks
+{
+    __block NSURL* tmpFileUrl = nil;
+    __block NSData* receivedReadme = nil;
+    
+    SEL testMethod = _cmd;
+    [ self prepare: testMethod ];
+    
+    JFFAsyncOperation loader =
+    [ JNUrlSessionOperationBuilder asyncTempFileDownloadWithRequest: self->_request
+                                                          authBlock: nil ];
+    
+    loader( nil, nil, ^void( id result, NSError* error )
+    {
+       tmpFileUrl = result;
+       
+       [ self notify: kGHUnitWaitStatusSuccess
+         forSelector: testMethod ];
+    });
+    
+    [ self waitForStatus: kGHUnitWaitStatusSuccess
+                 timeout: 1000 ];
+    
+    // does not work
+    receivedReadme = [ NSData dataWithContentsOfURL: tmpFileUrl ];
+    GHAssertTrue( [ self->_expectedReadme isEqualToData: receivedReadme ], @"downloaded content mismatch" );
+}
+
 
 @end

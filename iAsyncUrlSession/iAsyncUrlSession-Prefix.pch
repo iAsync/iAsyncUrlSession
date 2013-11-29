@@ -9,6 +9,8 @@
     #import "JNUrlSessionConnectionCallbacks.h"
     #import "JNDownloadProgressInfo.h"
 
+    #import <JFFAsyncOperations/JFFAsyncOperations.h>
+
     #import <Foundation/Foundation.h>
 
     #ifdef __cplusplus

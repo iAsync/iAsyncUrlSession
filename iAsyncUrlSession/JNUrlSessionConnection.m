@@ -16,10 +16,20 @@
 
 @implementation JNUrlSessionConnection
 
--(void)dealloc
+-(void)cleanup
 {
     self->_callbacks = nil;
-    [ self cancel ];
+
+    [ self->_session invalidateAndCancel ];
+    self->_session = nil;
+    self->_sessionConfig = nil;
+
+    self->_downloadTask = nil;
+}
+
+-(void)dealloc
+{
+    [ self cleanup ];
 }
 
 -(instancetype)init
@@ -60,6 +70,11 @@
 
 -(void)start
 {
+    if ( nil != self->_downloadTask )
+    {
+        return;
+    }
+    
     NSURLSessionDownloadTask* task = [ self->_session downloadTaskWithRequest: self->_httpRequest ];
     self.downloadTask = task;
 
@@ -69,10 +84,7 @@
 -(void)cancel
 {
     [ self->_downloadTask cancel ];
-
-    self->_downloadTask = nil;
-    self->_session = nil;
-    self->_sessionConfig = nil;
+    [ self cleanup ];
 }
 
 
@@ -101,8 +113,7 @@ totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite
     progressBlock( progressInfo );
 }
 
-
-- (void)URLSession:(NSURLSession *)session
+-(void)URLSession:(NSURLSession *)session
       downloadTask:(NSURLSessionDownloadTask *)downloadTask
 didFinishDownloadingToURL:(NSURL *)location
 {
@@ -113,32 +124,53 @@ didFinishDownloadingToURL:(NSURL *)location
     {
         completionBlock( location, nil );
     }
+    
+    [ self cleanup ];
 }
 
 -(void)URLSession:(NSURLSession *)session
              task:(NSURLSessionTask *)task
 didCompleteWithError:(NSError *)error
 {
-    // @adk - ???
-    NSParameterAssert( nil != error );
+    if ( nil == error )
+    {
+        // after session invalidation we still receive this callback
+        
+        // we should have reveived didFinishDownloadingToURL:
+        // at this point
+
+        return;
+    }
     
     JNDownloadToTempFileFinished completionBlock = self->_callbacks.completionBlock;
     if ( nil != completionBlock )
     {
         completionBlock( nil, error );
     }
+    
+    [ self cleanup ];
 }
 
 -(void)URLSession:(NSURLSession *)session
 didBecomeInvalidWithError:(NSError *)error
 {
-    NSParameterAssert( nil != error );
+    if ( nil == error )
+    {
+        // after session invalidation we still receive this callback
+        
+        // we should have reveived didFinishDownloadingToURL:
+        // at this point
+        
+        return;
+    }
     
     JNDownloadToTempFileFinished completionBlock = self->_callbacks.completionBlock;
     if ( nil != completionBlock )
     {
         completionBlock( nil, error );
     }
+    
+    [ self cleanup ];
 }
 
 
@@ -190,6 +222,23 @@ completionHandler:( NS_CERTIFICATE_CHECK_COMPLETION_BLOCK )completionHandler
         }
 #endif
     }
+}
+
+
+#pragma mark -
+#pragma mark Utils
++(void)copyFileToCaches:( NSURL* )tmpFileUrl
+{
+    
+}
+
++(JFFAsyncOperation)asyncCopyFileToCaches:( NSURL* )tmpFileUrl
+{
+    return asyncOperationWithSyncOperation(^id(NSError *__autoreleasing *outError)
+    {
+        [ self copyFileToCaches: tmpFileUrl ];
+        return [ NSNull null ];
+    } );
 }
 
 @end
