@@ -1,0 +1,995 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7E2E7ECA1848E3A4002691D3 /* libJFFNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E2E7EA71848E389002691D3 /* libJFFNetwork.a */; };
+		7E2E7ECB1848E3AC002691D3 /* libJFFAsyncOperations.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E2E7E9D1848E389002691D3 /* libJFFAsyncOperations.a */; };
+		7E2E7ECC1848E3AC002691D3 /* libJFFUtils.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E2E7EBF1848E389002691D3 /* libJFFUtils.a */; };
+		7E2E7ED41848E426002691D3 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E2E7ED31848E426002691D3 /* libz.dylib */; };
+		7E6BABF61848DD6D007FBEAC /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E6BABF51848DD6D007FBEAC /* GHUnitIOS.framework */; };
+		7E6BAC041848DFE3007FBEAC /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E6BAC031848DFE3007FBEAC /* libc++.dylib */; };
+		7E6BAC061848E03B007FBEAC /* ReadmeDownloadAsyncTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6BAC051848E03B007FBEAC /* ReadmeDownloadAsyncTest.m */; };
+		7E6BAC091848E0C1007FBEAC /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 7E6BAC081848E0C1007FBEAC /* README.md */; };
+		7E92602C1848DB6900E98027 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E92602B1848DB6900E98027 /* Foundation.framework */; };
+		7E92602E1848DB6900E98027 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E92602D1848DB6900E98027 /* CoreGraphics.framework */; };
+		7E9260301848DB6900E98027 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E92602F1848DB6900E98027 /* UIKit.framework */; };
+		7E9260361848DB6900E98027 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7E9260341848DB6900E98027 /* InfoPlist.strings */; };
+		7E9260381848DB6900E98027 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9260371848DB6900E98027 /* main.m */; };
+		7E9260441848DB6900E98027 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E9260431848DB6900E98027 /* Images.xcassets */; };
+		7E92604B1848DB6900E98027 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E92604A1848DB6900E98027 /* XCTest.framework */; };
+		7E92604C1848DB6900E98027 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E92602B1848DB6900E98027 /* Foundation.framework */; };
+		7E92604D1848DB6900E98027 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E92602F1848DB6900E98027 /* UIKit.framework */; };
+		7E9260551848DB6900E98027 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7E9260531848DB6900E98027 /* InfoPlist.strings */; };
+		7E9260571848DB6900E98027 /* UrlSessionOperationTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9260561848DB6900E98027 /* UrlSessionOperationTestTests.m */; };
+		7EA0AABC1848E362003247B4 /* libiAsyncUrlSession.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EA0AAAB1848E2E0003247B4 /* libiAsyncUrlSession.a */; };
+		7EA0AABD1848E362003247B4 /* libJFFScheduler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EA0AAB51848E30F003247B4 /* libJFFScheduler.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7E2E7E9C1848E389002691D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E6BABCB1848DCDB007FBEAC /* JFFAsyncOperations.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
+			remoteInfo = JFFAsyncOperations;
+		};
+		7E2E7E9E1848E389002691D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E6BABCB1848DCDB007FBEAC /* JFFAsyncOperations.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5391037B14A88BB5007315A3;
+			remoteInfo = "JFFAsyncOperations-clang";
+		};
+		7E2E7EA01848E389002691D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E6BABCB1848DCDB007FBEAC /* JFFAsyncOperations.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7E8F20C914F94BDF00588C7D;
+			remoteInfo = JFFAsyncOperationsFW;
+		};
+		7E2E7EA61848E389002691D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E6BABE61848DCEC007FBEAC /* JFFNetwork.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8D5AE6DB13F3E6C600EB6143;
+			remoteInfo = JFFNetwork;
+		};
+		7E2E7EA81848E389002691D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E6BABE61848DCEC007FBEAC /* JFFNetwork.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 65802B22148BFC230040A93A;
+			remoteInfo = JFFNetworkMacOS;
+		};
+		7E2E7EAA1848E389002691D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E6BABE61848DCEC007FBEAC /* JFFNetwork.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 539103B714A88BCA007315A3;
+			remoteInfo = "JFFNetwork-clang";
+		};
+		7E2E7EAC1848E389002691D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E6BABE61848DCEC007FBEAC /* JFFNetwork.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7E8F204314F9494300588C7D;
+			remoteInfo = JFFNetworkFW;
+		};
+		7E2E7EB41848E389002691D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E6BABC51848DCBE007FBEAC /* JFFTestTools.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1BE0542B154826DA00270B58;
+			remoteInfo = JFFTestTools;
+		};
+		7E2E7EBE1848E389002691D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E6BABB01848DCB5007FBEAC /* JFFUtils.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
+			remoteInfo = JFFUtils;
+		};
+		7E2E7EC01848E389002691D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E6BABB01848DCB5007FBEAC /* JFFUtils.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 65802A5B148BF2930040A93A;
+			remoteInfo = JFFUtilsMacOS;
+		};
+		7E2E7EC21848E389002691D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E6BABB01848DCB5007FBEAC /* JFFUtils.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5391044314A88C04007315A3;
+			remoteInfo = "JFFUtils-clang";
+		};
+		7E2E7EC41848E389002691D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E6BABB01848DCB5007FBEAC /* JFFUtils.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7E57F42414F93738002D139B;
+			remoteInfo = JFFUtilsFW;
+		};
+		7E2E7EC61848E389002691D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E6BABB01848DCB5007FBEAC /* JFFUtils.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CE444A1C1608609100DD85B0;
+			remoteInfo = JFFUtilsTest;
+		};
+		7E2E7EC81848E389002691D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E6BABB01848DCB5007FBEAC /* JFFUtils.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7ED3CB1516E6387B00E5A00F;
+			remoteInfo = "JFFUtilsTest-CI";
+		};
+		7E2E7ECD1848E3B6002691D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E6BABE61848DCEC007FBEAC /* JFFNetwork.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D5AE6DA13F3E6C600EB6143;
+			remoteInfo = JFFNetwork;
+		};
+		7E2E7ECF1848E3B6002691D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E6BABCB1848DCDB007FBEAC /* JFFAsyncOperations.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = JFFAsyncOperations;
+		};
+		7E2E7ED11848E3B6002691D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E6BABB01848DCB5007FBEAC /* JFFUtils.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = JFFUtils;
+		};
+		7E92604E1848DB6900E98027 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E9260201848DB6900E98027 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7E9260271848DB6900E98027;
+			remoteInfo = UrlSessionOperationTest;
+		};
+		7EA0AAAA1848E2E0003247B4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E9260601848DB7300E98027 /* iAsyncUrlSession.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7E3DF2941847369600230731;
+			remoteInfo = iAsyncUrlSession;
+		};
+		7EA0AAAC1848E2E0003247B4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E9260601848DB7300E98027 /* iAsyncUrlSession.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7E3DF2A41847369600230731;
+			remoteInfo = iAsyncUrlSessionTests;
+		};
+		7EA0AAB41848E30F003247B4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E6BABD71848DCE2007FBEAC /* JFFScheduler.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
+			remoteInfo = JFFScheduler;
+		};
+		7EA0AAB61848E30F003247B4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E6BABD71848DCE2007FBEAC /* JFFScheduler.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 65802B07148BFB850040A93A;
+			remoteInfo = JFFSchedulerMacOS;
+		};
+		7EA0AAB81848E30F003247B4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E6BABD71848DCE2007FBEAC /* JFFScheduler.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 539103C614A88BD6007315A3;
+			remoteInfo = "JFFScheduler-clang";
+		};
+		7EA0AABA1848E30F003247B4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E6BABD71848DCE2007FBEAC /* JFFScheduler.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7E8F202A14F9484F00588C7D;
+			remoteInfo = JFFSchedulerFW;
+		};
+		7EA0AAC41848E371003247B4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E6BABD71848DCE2007FBEAC /* JFFScheduler.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = JFFScheduler;
+		};
+		7EA0AAC61848E371003247B4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E9260601848DB7300E98027 /* iAsyncUrlSession.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 7E3DF2931847369600230731;
+			remoteInfo = iAsyncUrlSession;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7E2E7ED31848E426002691D3 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		7E6BABB01848DCB5007FBEAC /* JFFUtils.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JFFUtils.xcodeproj; path = ../../JFFLibrary/lib/JFFUtils/JFFUtils.xcodeproj; sourceTree = "<group>"; };
+		7E6BABC51848DCBE007FBEAC /* JFFTestTools.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JFFTestTools.xcodeproj; path = ../../JFFLibrary/lib/JFFTestTools/JFFTestTools.xcodeproj; sourceTree = "<group>"; };
+		7E6BABCB1848DCDB007FBEAC /* JFFAsyncOperations.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JFFAsyncOperations.xcodeproj; path = ../../JFFLibrary/lib/JFFAsyncOperations/JFFAsyncOperations.xcodeproj; sourceTree = "<group>"; };
+		7E6BABD71848DCE2007FBEAC /* JFFScheduler.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JFFScheduler.xcodeproj; path = ../../JFFLibrary/lib/JFFScheduler/JFFScheduler.xcodeproj; sourceTree = "<group>"; };
+		7E6BABE61848DCEC007FBEAC /* JFFNetwork.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JFFNetwork.xcodeproj; path = ../../JFFLibrary/lib/JFFNetwork/JFFNetwork.xcodeproj; sourceTree = "<group>"; };
+		7E6BABF51848DD6D007FBEAC /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnitIOS.framework; path = ../../../frameworks/GHUnitIOS.framework; sourceTree = "<group>"; };
+		7E6BAC031848DFE3007FBEAC /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		7E6BAC051848E03B007FBEAC /* ReadmeDownloadAsyncTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadmeDownloadAsyncTest.m; sourceTree = "<group>"; };
+		7E6BAC081848E0C1007FBEAC /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		7E9260281848DB6900E98027 /* UrlSessionOperationTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UrlSessionOperationTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E92602B1848DB6900E98027 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		7E92602D1848DB6900E98027 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		7E92602F1848DB6900E98027 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		7E9260331848DB6900E98027 /* UrlSessionOperationTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UrlSessionOperationTest-Info.plist"; sourceTree = "<group>"; };
+		7E9260351848DB6900E98027 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7E9260371848DB6900E98027 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7E9260391848DB6900E98027 /* UrlSessionOperationTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UrlSessionOperationTest-Prefix.pch"; sourceTree = "<group>"; };
+		7E9260431848DB6900E98027 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		7E9260491848DB6900E98027 /* UrlSessionOperationTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UrlSessionOperationTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E92604A1848DB6900E98027 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		7E9260521848DB6900E98027 /* UrlSessionOperationTestTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UrlSessionOperationTestTests-Info.plist"; sourceTree = "<group>"; };
+		7E9260541848DB6900E98027 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7E9260561848DB6900E98027 /* UrlSessionOperationTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UrlSessionOperationTestTests.m; sourceTree = "<group>"; };
+		7E9260601848DB7300E98027 /* iAsyncUrlSession.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = iAsyncUrlSession.xcodeproj; path = ../iAsyncUrlSession.xcodeproj; sourceTree = "<group>"; };
+		7EA0AABE1848E362003247B4 /* libJFFAsyncOperations.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libJFFAsyncOperations.a; path = "../../JFFLibrary/lib/JFFAsyncOperations/build/Debug-iphoneos/libJFFAsyncOperations.a"; sourceTree = "<group>"; };
+		7EA0AABF1848E362003247B4 /* libJFFNetwork.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libJFFNetwork.a; path = "../../JFFLibrary/lib/JFFNetwork/build/Debug-iphoneos/libJFFNetwork.a"; sourceTree = "<group>"; };
+		7EA0AAC01848E362003247B4 /* libJFFUtils.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libJFFUtils.a; path = "../../JFFLibrary/lib/JFFUtils/build/Debug-iphoneos/libJFFUtils.a"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7E9260251848DB6900E98027 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E2E7ED41848E426002691D3 /* libz.dylib in Frameworks */,
+				7E2E7ECB1848E3AC002691D3 /* libJFFAsyncOperations.a in Frameworks */,
+				7E2E7ECC1848E3AC002691D3 /* libJFFUtils.a in Frameworks */,
+				7E2E7ECA1848E3A4002691D3 /* libJFFNetwork.a in Frameworks */,
+				7EA0AABC1848E362003247B4 /* libiAsyncUrlSession.a in Frameworks */,
+				7EA0AABD1848E362003247B4 /* libJFFScheduler.a in Frameworks */,
+				7E6BAC041848DFE3007FBEAC /* libc++.dylib in Frameworks */,
+				7E92602E1848DB6900E98027 /* CoreGraphics.framework in Frameworks */,
+				7E6BABF61848DD6D007FBEAC /* GHUnitIOS.framework in Frameworks */,
+				7E9260301848DB6900E98027 /* UIKit.framework in Frameworks */,
+				7E92602C1848DB6900E98027 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E9260461848DB6900E98027 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E92604B1848DB6900E98027 /* XCTest.framework in Frameworks */,
+				7E92604D1848DB6900E98027 /* UIKit.framework in Frameworks */,
+				7E92604C1848DB6900E98027 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7E2E7E941848E389002691D3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7E2E7E9D1848E389002691D3 /* libJFFAsyncOperations.a */,
+				7E2E7E9F1848E389002691D3 /* libJFFAsyncOperations-clang.a */,
+				7E2E7EA11848E389002691D3 /* JFFAsyncOperationsFW.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7E2E7E961848E389002691D3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7E2E7EA71848E389002691D3 /* libJFFNetwork.a */,
+				7E2E7EA91848E389002691D3 /* libJFFNetworkMacOS.a */,
+				7E2E7EAB1848E389002691D3 /* libJFFNetwork-clang.a */,
+				7E2E7EAD1848E389002691D3 /* JFFNetworkFW.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7E2E7EB11848E389002691D3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7E2E7EB51848E389002691D3 /* libJFFTestTools.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7E2E7EB61848E389002691D3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7E2E7EBF1848E389002691D3 /* libJFFUtils.a */,
+				7E2E7EC11848E389002691D3 /* libJFFUtilsMacOS.a */,
+				7E2E7EC31848E389002691D3 /* libJFFUtils-clang.a */,
+				7E2E7EC51848E389002691D3 /* JFFUtilsFW.framework */,
+				7E2E7EC71848E389002691D3 /* JFFUtilsTest.octest */,
+				7E2E7EC91848E389002691D3 /* JFFUtilsTest-CI.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7E6BABA81848DC8D007FBEAC /* iAsync */ = {
+			isa = PBXGroup;
+			children = (
+				7E6BABE61848DCEC007FBEAC /* JFFNetwork.xcodeproj */,
+				7E6BABD71848DCE2007FBEAC /* JFFScheduler.xcodeproj */,
+				7E6BABCB1848DCDB007FBEAC /* JFFAsyncOperations.xcodeproj */,
+				7E6BABC51848DCBE007FBEAC /* JFFTestTools.xcodeproj */,
+				7E6BABB01848DCB5007FBEAC /* JFFUtils.xcodeproj */,
+			);
+			name = iAsync;
+			sourceTree = "<group>";
+		};
+		7E6BABA91848DC99007FBEAC /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				7E6BABF51848DD6D007FBEAC /* GHUnitIOS.framework */,
+				7E6BABA81848DC8D007FBEAC /* iAsync */,
+				7E9260601848DB7300E98027 /* iAsyncUrlSession.xcodeproj */,
+			);
+			name = libs;
+			sourceTree = "<group>";
+		};
+		7E6BAC071848E0AE007FBEAC /* TestData */ = {
+			isa = PBXGroup;
+			children = (
+				7E6BAC081848E0C1007FBEAC /* README.md */,
+			);
+			name = TestData;
+			sourceTree = "<group>";
+		};
+		7E92601F1848DB6900E98027 = {
+			isa = PBXGroup;
+			children = (
+				7E6BABA91848DC99007FBEAC /* libs */,
+				7E9260311848DB6900E98027 /* UrlSessionOperationTest */,
+				7E9260501848DB6900E98027 /* UrlSessionOperationTestTests */,
+				7E92602A1848DB6900E98027 /* Frameworks */,
+				7E9260291848DB6900E98027 /* Products */,
+				7E6BAC071848E0AE007FBEAC /* TestData */,
+			);
+			sourceTree = "<group>";
+		};
+		7E9260291848DB6900E98027 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7E9260281848DB6900E98027 /* UrlSessionOperationTest.app */,
+				7E9260491848DB6900E98027 /* UrlSessionOperationTestTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7E92602A1848DB6900E98027 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7E2E7ED31848E426002691D3 /* libz.dylib */,
+				7EA0AABE1848E362003247B4 /* libJFFAsyncOperations.a */,
+				7EA0AABF1848E362003247B4 /* libJFFNetwork.a */,
+				7EA0AAC01848E362003247B4 /* libJFFUtils.a */,
+				7E6BAC031848DFE3007FBEAC /* libc++.dylib */,
+				7E92602B1848DB6900E98027 /* Foundation.framework */,
+				7E92602D1848DB6900E98027 /* CoreGraphics.framework */,
+				7E92602F1848DB6900E98027 /* UIKit.framework */,
+				7E92604A1848DB6900E98027 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7E9260311848DB6900E98027 /* UrlSessionOperationTest */ = {
+			isa = PBXGroup;
+			children = (
+				7E9260431848DB6900E98027 /* Images.xcassets */,
+				7E9260321848DB6900E98027 /* Supporting Files */,
+				7E6BAC051848E03B007FBEAC /* ReadmeDownloadAsyncTest.m */,
+			);
+			path = UrlSessionOperationTest;
+			sourceTree = "<group>";
+		};
+		7E9260321848DB6900E98027 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7E9260331848DB6900E98027 /* UrlSessionOperationTest-Info.plist */,
+				7E9260341848DB6900E98027 /* InfoPlist.strings */,
+				7E9260371848DB6900E98027 /* main.m */,
+				7E9260391848DB6900E98027 /* UrlSessionOperationTest-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7E9260501848DB6900E98027 /* UrlSessionOperationTestTests */ = {
+			isa = PBXGroup;
+			children = (
+				7E9260561848DB6900E98027 /* UrlSessionOperationTestTests.m */,
+				7E9260511848DB6900E98027 /* Supporting Files */,
+			);
+			path = UrlSessionOperationTestTests;
+			sourceTree = "<group>";
+		};
+		7E9260511848DB6900E98027 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7E9260521848DB6900E98027 /* UrlSessionOperationTestTests-Info.plist */,
+				7E9260531848DB6900E98027 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7EA0AAA61848E2E0003247B4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7EA0AAAB1848E2E0003247B4 /* libiAsyncUrlSession.a */,
+				7EA0AAAD1848E2E0003247B4 /* iAsyncUrlSessionTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7EA0AAAE1848E30F003247B4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7EA0AAB51848E30F003247B4 /* libJFFScheduler.a */,
+				7EA0AAB71848E30F003247B4 /* libJFFSchedulerMacOS.a */,
+				7EA0AAB91848E30F003247B4 /* libJFFScheduler-clang.a */,
+				7EA0AABB1848E30F003247B4 /* JFFSchedulerFW.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7E9260271848DB6900E98027 /* UrlSessionOperationTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7E92605A1848DB6900E98027 /* Build configuration list for PBXNativeTarget "UrlSessionOperationTest" */;
+			buildPhases = (
+				7E9260241848DB6900E98027 /* Sources */,
+				7E9260251848DB6900E98027 /* Frameworks */,
+				7E9260261848DB6900E98027 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7E2E7ECE1848E3B6002691D3 /* PBXTargetDependency */,
+				7E2E7ED01848E3B6002691D3 /* PBXTargetDependency */,
+				7E2E7ED21848E3B6002691D3 /* PBXTargetDependency */,
+				7EA0AAC51848E371003247B4 /* PBXTargetDependency */,
+				7EA0AAC71848E371003247B4 /* PBXTargetDependency */,
+			);
+			name = UrlSessionOperationTest;
+			productName = UrlSessionOperationTest;
+			productReference = 7E9260281848DB6900E98027 /* UrlSessionOperationTest.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7E9260481848DB6900E98027 /* UrlSessionOperationTestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7E92605D1848DB6900E98027 /* Build configuration list for PBXNativeTarget "UrlSessionOperationTestTests" */;
+			buildPhases = (
+				7E9260451848DB6900E98027 /* Sources */,
+				7E9260461848DB6900E98027 /* Frameworks */,
+				7E9260471848DB6900E98027 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7E92604F1848DB6900E98027 /* PBXTargetDependency */,
+			);
+			name = UrlSessionOperationTestTests;
+			productName = UrlSessionOperationTestTests;
+			productReference = 7E9260491848DB6900E98027 /* UrlSessionOperationTestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7E9260201848DB6900E98027 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = iAsync;
+				TargetAttributes = {
+					7E9260481848DB6900E98027 = {
+						TestTargetID = 7E9260271848DB6900E98027;
+					};
+				};
+			};
+			buildConfigurationList = 7E9260231848DB6900E98027 /* Build configuration list for PBXProject "UrlSessionOperationTest" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7E92601F1848DB6900E98027;
+			productRefGroup = 7E9260291848DB6900E98027 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 7EA0AAA61848E2E0003247B4 /* Products */;
+					ProjectRef = 7E9260601848DB7300E98027 /* iAsyncUrlSession.xcodeproj */;
+				},
+				{
+					ProductGroup = 7E2E7E941848E389002691D3 /* Products */;
+					ProjectRef = 7E6BABCB1848DCDB007FBEAC /* JFFAsyncOperations.xcodeproj */;
+				},
+				{
+					ProductGroup = 7E2E7E961848E389002691D3 /* Products */;
+					ProjectRef = 7E6BABE61848DCEC007FBEAC /* JFFNetwork.xcodeproj */;
+				},
+				{
+					ProductGroup = 7EA0AAAE1848E30F003247B4 /* Products */;
+					ProjectRef = 7E6BABD71848DCE2007FBEAC /* JFFScheduler.xcodeproj */;
+				},
+				{
+					ProductGroup = 7E2E7EB11848E389002691D3 /* Products */;
+					ProjectRef = 7E6BABC51848DCBE007FBEAC /* JFFTestTools.xcodeproj */;
+				},
+				{
+					ProductGroup = 7E2E7EB61848E389002691D3 /* Products */;
+					ProjectRef = 7E6BABB01848DCB5007FBEAC /* JFFUtils.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				7E9260271848DB6900E98027 /* UrlSessionOperationTest */,
+				7E9260481848DB6900E98027 /* UrlSessionOperationTestTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		7E2E7E9D1848E389002691D3 /* libJFFAsyncOperations.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libJFFAsyncOperations.a;
+			remoteRef = 7E2E7E9C1848E389002691D3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7E2E7E9F1848E389002691D3 /* libJFFAsyncOperations-clang.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libJFFAsyncOperations-clang.a";
+			remoteRef = 7E2E7E9E1848E389002691D3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7E2E7EA11848E389002691D3 /* JFFAsyncOperationsFW.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework.static;
+			path = JFFAsyncOperationsFW.framework;
+			remoteRef = 7E2E7EA01848E389002691D3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7E2E7EA71848E389002691D3 /* libJFFNetwork.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libJFFNetwork.a;
+			remoteRef = 7E2E7EA61848E389002691D3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7E2E7EA91848E389002691D3 /* libJFFNetworkMacOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libJFFNetworkMacOS.a;
+			remoteRef = 7E2E7EA81848E389002691D3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7E2E7EAB1848E389002691D3 /* libJFFNetwork-clang.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libJFFNetwork-clang.a";
+			remoteRef = 7E2E7EAA1848E389002691D3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7E2E7EAD1848E389002691D3 /* JFFNetworkFW.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework.static;
+			path = JFFNetworkFW.framework;
+			remoteRef = 7E2E7EAC1848E389002691D3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7E2E7EB51848E389002691D3 /* libJFFTestTools.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libJFFTestTools.a;
+			remoteRef = 7E2E7EB41848E389002691D3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7E2E7EBF1848E389002691D3 /* libJFFUtils.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libJFFUtils.a;
+			remoteRef = 7E2E7EBE1848E389002691D3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7E2E7EC11848E389002691D3 /* libJFFUtilsMacOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libJFFUtilsMacOS.a;
+			remoteRef = 7E2E7EC01848E389002691D3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7E2E7EC31848E389002691D3 /* libJFFUtils-clang.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libJFFUtils-clang.a";
+			remoteRef = 7E2E7EC21848E389002691D3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7E2E7EC51848E389002691D3 /* JFFUtilsFW.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework.static;
+			path = JFFUtilsFW.framework;
+			remoteRef = 7E2E7EC41848E389002691D3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7E2E7EC71848E389002691D3 /* JFFUtilsTest.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = JFFUtilsTest.octest;
+			remoteRef = 7E2E7EC61848E389002691D3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7E2E7EC91848E389002691D3 /* JFFUtilsTest-CI.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "JFFUtilsTest-CI.octest";
+			remoteRef = 7E2E7EC81848E389002691D3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7EA0AAAB1848E2E0003247B4 /* libiAsyncUrlSession.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libiAsyncUrlSession.a;
+			remoteRef = 7EA0AAAA1848E2E0003247B4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7EA0AAAD1848E2E0003247B4 /* iAsyncUrlSessionTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = iAsyncUrlSessionTests.xctest;
+			remoteRef = 7EA0AAAC1848E2E0003247B4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7EA0AAB51848E30F003247B4 /* libJFFScheduler.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libJFFScheduler.a;
+			remoteRef = 7EA0AAB41848E30F003247B4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7EA0AAB71848E30F003247B4 /* libJFFSchedulerMacOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libJFFSchedulerMacOS.a;
+			remoteRef = 7EA0AAB61848E30F003247B4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7EA0AAB91848E30F003247B4 /* libJFFScheduler-clang.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libJFFScheduler-clang.a";
+			remoteRef = 7EA0AAB81848E30F003247B4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7EA0AABB1848E30F003247B4 /* JFFSchedulerFW.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework.static;
+			path = JFFSchedulerFW.framework;
+			remoteRef = 7EA0AABA1848E30F003247B4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7E9260261848DB6900E98027 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E6BAC091848E0C1007FBEAC /* README.md in Resources */,
+				7E9260441848DB6900E98027 /* Images.xcassets in Resources */,
+				7E9260361848DB6900E98027 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E9260471848DB6900E98027 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E9260551848DB6900E98027 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7E9260241848DB6900E98027 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E6BAC061848E03B007FBEAC /* ReadmeDownloadAsyncTest.m in Sources */,
+				7E9260381848DB6900E98027 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E9260451848DB6900E98027 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E9260571848DB6900E98027 /* UrlSessionOperationTestTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7E2E7ECE1848E3B6002691D3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JFFNetwork;
+			targetProxy = 7E2E7ECD1848E3B6002691D3 /* PBXContainerItemProxy */;
+		};
+		7E2E7ED01848E3B6002691D3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JFFAsyncOperations;
+			targetProxy = 7E2E7ECF1848E3B6002691D3 /* PBXContainerItemProxy */;
+		};
+		7E2E7ED21848E3B6002691D3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JFFUtils;
+			targetProxy = 7E2E7ED11848E3B6002691D3 /* PBXContainerItemProxy */;
+		};
+		7E92604F1848DB6900E98027 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7E9260271848DB6900E98027 /* UrlSessionOperationTest */;
+			targetProxy = 7E92604E1848DB6900E98027 /* PBXContainerItemProxy */;
+		};
+		7EA0AAC51848E371003247B4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JFFScheduler;
+			targetProxy = 7EA0AAC41848E371003247B4 /* PBXContainerItemProxy */;
+		};
+		7EA0AAC71848E371003247B4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = iAsyncUrlSession;
+			targetProxy = 7EA0AAC61848E371003247B4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7E9260341848DB6900E98027 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7E9260351848DB6900E98027 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		7E9260531848DB6900E98027 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7E9260541848DB6900E98027 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7E9260581848DB6900E98027 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					../,
+					../../JFFLibrary/lib,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-all_load";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		7E9260591848DB6900E98027 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					../,
+					../../JFFLibrary/lib,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "-all_load";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7E92605B1848DB6900E98027 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Volumes/untitled/projects/frameworks,
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "UrlSessionOperationTest/UrlSessionOperationTest-Prefix.pch";
+				INFOPLIST_FILE = "UrlSessionOperationTest/UrlSessionOperationTest-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Volumes/untitled/projects/lib-third-party/JFFLibrary/lib/JFFAsyncOperations/build/Debug-iphoneos",
+					"/Volumes/untitled/projects/lib-third-party/JFFLibrary/lib/JFFNetwork/build/Debug-iphoneos",
+					"/Volumes/untitled/projects/lib-third-party/JFFLibrary/lib/JFFUtils/build/Debug-iphoneos",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		7E92605C1848DB6900E98027 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Volumes/untitled/projects/frameworks,
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "UrlSessionOperationTest/UrlSessionOperationTest-Prefix.pch";
+				INFOPLIST_FILE = "UrlSessionOperationTest/UrlSessionOperationTest-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Volumes/untitled/projects/lib-third-party/JFFLibrary/lib/JFFAsyncOperations/build/Debug-iphoneos",
+					"/Volumes/untitled/projects/lib-third-party/JFFLibrary/lib/JFFNetwork/build/Debug-iphoneos",
+					"/Volumes/untitled/projects/lib-third-party/JFFLibrary/lib/JFFUtils/build/Debug-iphoneos",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		7E92605E1848DB6900E98027 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/UrlSessionOperationTest.app/UrlSessionOperationTest";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "UrlSessionOperationTest/UrlSessionOperationTest-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "UrlSessionOperationTestTests/UrlSessionOperationTestTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		7E92605F1848DB6900E98027 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/UrlSessionOperationTest.app/UrlSessionOperationTest";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "UrlSessionOperationTest/UrlSessionOperationTest-Prefix.pch";
+				INFOPLIST_FILE = "UrlSessionOperationTestTests/UrlSessionOperationTestTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7E9260231848DB6900E98027 /* Build configuration list for PBXProject "UrlSessionOperationTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E9260581848DB6900E98027 /* Debug */,
+				7E9260591848DB6900E98027 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7E92605A1848DB6900E98027 /* Build configuration list for PBXNativeTarget "UrlSessionOperationTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E92605B1848DB6900E98027 /* Debug */,
+				7E92605C1848DB6900E98027 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7E92605D1848DB6900E98027 /* Build configuration list for PBXNativeTarget "UrlSessionOperationTestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E92605E1848DB6900E98027 /* Debug */,
+				7E92605F1848DB6900E98027 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7E9260201848DB6900E98027 /* Project object */;
+}

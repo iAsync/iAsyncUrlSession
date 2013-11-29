@@ -1,4 +1,5 @@
 
+#import <iAsyncUrlSession/JNUrlSessionOperationBuilder.h>
 #import <iAsyncUrlSession/JNDownloadProgressInfo.h>
 
 #import <iAsyncUrlSession/JNUrlSessionConnection.h>
