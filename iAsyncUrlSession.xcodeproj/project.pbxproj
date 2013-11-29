@@ -17,6 +17,7 @@
 		7E3DF3621847377A00230731 /* JNUrlSessionConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DF3611847377A00230731 /* JNUrlSessionConnection.m */; };
 		7E3DF365184737E500230731 /* JNUrlSessionConnectionCallbacks.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3DF364184737E500230731 /* JNUrlSessionConnectionCallbacks.m */; };
 		7E40082E1848CF7000927C9B /* MockSessionConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E40082D1848CF7000927C9B /* MockSessionConnection.m */; };
+		7E40083E1848D4A900927C9B /* JNUrlSessionOperationBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E40083D1848D4A900927C9B /* JNUrlSessionOperationBuilder.m */; };
 		7E9CB8C6184765530091D0AE /* JNDownloadProgressInfoPOD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9CB8C5184765530091D0AE /* JNDownloadProgressInfoPOD.m */; };
 		7ECBF31D1848920700256A05 /* JNUrlSessionAsyncOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECBF31C1848920700256A05 /* JNUrlSessionAsyncOperation.m */; };
 		7ED50165184894D100289520 /* InitSessionAsyncOperationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED50164184894D100289520 /* InitSessionAsyncOperationTest.m */; };
@@ -152,6 +153,8 @@
 		7E3DF364184737E500230731 /* JNUrlSessionConnectionCallbacks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNUrlSessionConnectionCallbacks.m; sourceTree = "<group>"; };
 		7E40082C1848CF7000927C9B /* MockSessionConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockSessionConnection.h; sourceTree = "<group>"; };
 		7E40082D1848CF7000927C9B /* MockSessionConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockSessionConnection.m; sourceTree = "<group>"; };
+		7E40083C1848D4A900927C9B /* JNUrlSessionOperationBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNUrlSessionOperationBuilder.h; sourceTree = "<group>"; };
+		7E40083D1848D4A900927C9B /* JNUrlSessionOperationBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNUrlSessionOperationBuilder.m; sourceTree = "<group>"; };
 		7E670E0E18473E9500339D12 /* JNUrlSessionBlocks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JNUrlSessionBlocks.h; sourceTree = "<group>"; };
 		7E9CB8C118474B420091D0AE /* JNUrlSessionConnectionBlocks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JNUrlSessionConnectionBlocks.h; sourceTree = "<group>"; };
 		7E9CB8C218474F3E0091D0AE /* iAsyncUrlSessionDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iAsyncUrlSessionDefines.h; sourceTree = "<group>"; };
@@ -234,6 +237,8 @@
 				7E9CB8C5184765530091D0AE /* JNDownloadProgressInfoPOD.m */,
 				7ECBF31B1848920700256A05 /* JNUrlSessionAsyncOperation.h */,
 				7ECBF31C1848920700256A05 /* JNUrlSessionAsyncOperation.m */,
+				7E40083C1848D4A900927C9B /* JNUrlSessionOperationBuilder.h */,
+				7E40083D1848D4A900927C9B /* JNUrlSessionOperationBuilder.m */,
 			);
 			path = iAsyncUrlSession;
 			sourceTree = "<group>";
@@ -502,6 +507,7 @@
 			files = (
 				7E3DF3621847377A00230731 /* JNUrlSessionConnection.m in Sources */,
 				7ECBF31D1848920700256A05 /* JNUrlSessionAsyncOperation.m in Sources */,
+				7E40083E1848D4A900927C9B /* JNUrlSessionOperationBuilder.m in Sources */,
 				7E9CB8C6184765530091D0AE /* JNDownloadProgressInfoPOD.m in Sources */,
 				7E3DF365184737E500230731 /* JNUrlSessionConnectionCallbacks.m in Sources */,
 			);
