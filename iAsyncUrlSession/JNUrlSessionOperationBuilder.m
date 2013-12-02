@@ -22,21 +22,21 @@
                                        sessionConfig:( NSURLSessionConfiguration* )sessionConfig
                              urlSessionCallbackQueue:( NSOperationQueue* )queue;
 {
-    JNUrlSessionConnectionCallbacks* callbacks = [ JNUrlSessionConnectionCallbacks new ];
-    callbacks.httpsAuthenticationBlock = authBlock;
-    
-    JNUrlSessionConnection* connection =
-    [ [ JNUrlSessionConnection alloc ] initWithSessionConfiguration: sessionConfig
-                                               sessionCallbackQueue: queue
-                                                        httpRequest: request
-                                                          callbacks: callbacks ];
-    connection.shouldCopyTmpFileToCaches = YES;
-
-    JNUrlSessionAsyncOperation* adapter =
-        [ [ JNUrlSessionAsyncOperation alloc ] initWithUrlSessionConnection: connection ];
-    
     JFFAsyncOperationInstanceBuilder adapterBuilder = ^id< JFFAsyncOperationInterface >(void)
     {
+        JNUrlSessionConnectionCallbacks* callbacks = [ JNUrlSessionConnectionCallbacks new ];
+        callbacks.httpsAuthenticationBlock = authBlock;
+        
+        JNUrlSessionConnection* connection =
+        [ [ JNUrlSessionConnection alloc ] initWithSessionConfiguration: sessionConfig
+                                                   sessionCallbackQueue: queue
+                                                            httpRequest: request
+                                                              callbacks: callbacks ];
+        connection.shouldCopyTmpFileToCaches = YES;
+        
+        JNUrlSessionAsyncOperation* adapter =
+        [ [ JNUrlSessionAsyncOperation alloc ] initWithUrlSessionConnection: connection ];
+        
         return adapter;
     };
     
