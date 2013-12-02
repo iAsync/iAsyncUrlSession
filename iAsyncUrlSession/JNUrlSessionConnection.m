@@ -118,15 +118,17 @@ totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite
 didFinishDownloadingToURL:(NSURL *)location
 {
     NSParameterAssert( nil != location );
-    
+
     if ( self->_shouldCopyTmpFileToCaches )
     {
-        JFFAsyncOperation asyncCopy = [ [ self class ] asyncCopyFileToCaches: location ];
-        asyncCopy( nil, nil, ^void( NSURL* tmpFileInCaches, NSError* copyError )
-        {
-            [ self onSuccessfulDownloadToTmpFile: tmpFileInCaches
-                                   copyFileError: copyError ];
-        } );
+        // @adk : it should be safe enough to invoke "move" on main thread.
+        // Since it does not involve a lot of file IO operations
+        NSError* moveFileError = nil;
+        NSURL* newLocation = [ [ self class ] moveFileToCaches: location
+                                                         error: &moveFileError ];
+
+        [ self onSuccessfulDownloadToTmpFile: newLocation
+                               copyFileError: moveFileError ];
     }
     else
     {
@@ -248,12 +250,12 @@ completionHandler:( NS_CERTIFICATE_CHECK_COMPLETION_BLOCK )completionHandler
 
 #pragma mark -
 #pragma mark Utils
-+(NSURL*)copyFileToCaches:( NSURL* )tmpFileUrl
++(NSURL*)moveFileToCaches:( NSURL* )tmpFileUrl
                     error:( NSError** )error
 {
     // TODO : rewrite copypaste from Apple's example
     
-    NSFileManager* fileManager = [NSFileManager defaultManager];
+    NSFileManager* fileManager = [ NSFileManager defaultManager ];
     
     NSArray* URLs = [ fileManager URLsForDirectory: NSCachesDirectory
                                          inDomains: NSUserDomainMask ];
@@ -263,14 +265,16 @@ completionHandler:( NS_CERTIFICATE_CHECK_COMPLETION_BLOCK )completionHandler
     NSURL* downloadURL = tmpFileUrl;
     NSURL* originalURL = tmpFileUrl;
     NSURL* destinationURL = [ cachesDirectory URLByAppendingPathComponent: [ originalURL lastPathComponent ] ];
-    NSError* errorCopy;
+    NSError* errorCopy = nil;
     
-    // For the purposes of testing, remove any esisting file at the destination.
     [ fileManager removeItemAtURL: destinationURL
                             error: NULL ];
-    BOOL success = [ fileManager copyItemAtURL: downloadURL
+
+    
+    BOOL success = [ fileManager moveItemAtURL: downloadURL
                                          toURL: destinationURL
                                          error: &errorCopy ];
+
     if ( success )
     {
         return destinationURL;
@@ -279,15 +283,6 @@ completionHandler:( NS_CERTIFICATE_CHECK_COMPLETION_BLOCK )completionHandler
     {
         return nil;
     }
-}
-
-+(JFFAsyncOperation)asyncCopyFileToCaches:( NSURL* )tmpFileUrl
-{
-    return asyncOperationWithSyncOperation(^id(NSError *__autoreleasing *outError)
-    {
-        return [ self copyFileToCaches: tmpFileUrl
-                                 error: outError ];
-    } );
 }
 
 @end

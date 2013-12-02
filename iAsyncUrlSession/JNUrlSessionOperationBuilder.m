@@ -30,6 +30,8 @@
                                                sessionCallbackQueue: queue
                                                         httpRequest: request
                                                           callbacks: callbacks ];
+    connection.shouldCopyTmpFileToCaches = YES;
+
     JNUrlSessionAsyncOperation* adapter =
         [ [ JNUrlSessionAsyncOperation alloc ] initWithUrlSessionConnection: connection ];
     
