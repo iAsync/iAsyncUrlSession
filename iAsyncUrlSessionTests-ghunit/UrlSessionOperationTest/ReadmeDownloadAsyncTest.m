@@ -51,8 +51,6 @@
     [ self waitForStatus: kGHUnitWaitStatusSuccess
                  timeout: 1000 ];
 
-    // does not work
-//    receivedReadme = [ NSData dataWithContentsOfURL: tmpFileUrl ];
     GHAssertTrue( [ self->_expectedReadme isEqualToData: receivedReadme ], @"downloaded content mismatch" );
 }
 
