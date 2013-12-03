@@ -5,6 +5,8 @@
 
 @interface JNUrlSessionOperationBuilder : NSObject
 
++(JFFAsyncOperation)asyncTempFileDownloadWithRequest:( NSURLRequest* )request;
+
 +(JFFAsyncOperation)asyncTempFileDownloadWithRequest:( NSURLRequest* )request
                                            authBlock:( JNProcessAuthenticationChallengeBlock )authBlock;
 

@@ -7,6 +7,12 @@
 @implementation JNUrlSessionOperationBuilder
 
 +(JFFAsyncOperation)asyncTempFileDownloadWithRequest:( NSURLRequest* )request
+{
+    return [ self asyncTempFileDownloadWithRequest: request
+                                         authBlock: nil ];
+}
+
++(JFFAsyncOperation)asyncTempFileDownloadWithRequest:( NSURLRequest* )request
                                            authBlock:( JNProcessAuthenticationChallengeBlock )authBlock
 {
     NSOperationQueue* currentQueue = [ NSOperationQueue currentQueue ];
