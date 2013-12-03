@@ -44,8 +44,6 @@
 
 #pragma mark -
 #pragma mark Callback hooks
-//TODO : rewrite hooks with C++ templates
-
 -(JNDownloadToTempFileFinished)hookConnectionCompletionWithBlock:(JFFAsyncOperationInterfaceResultHandler)handler
 {
     JNUrlSessionConnectionCallbacks* connectionCallbacks = self->_connection.callbacks;

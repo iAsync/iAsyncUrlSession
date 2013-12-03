@@ -220,7 +220,7 @@ expectedTotalBytes:(int64_t)expectedTotalBytes
 #pragma mark NSURLSessionDelegate : HTTPS authentication
 -(void)URLSession:( NSURLSession* )session
 didReceiveChallenge:( NSURLAuthenticationChallenge* )challenge
-completionHandler:( NS_CERTIFICATE_CHECK_COMPLETION_BLOCK )completionHandler
+completionHandler:( NSCertificateCheckCompletionBlock )completionHandler
 {
     JNProcessAuthenticationChallengeBlock httpsBlock = self->_callbacks.httpsAuthenticationBlock;
     if ( nil != httpsBlock )

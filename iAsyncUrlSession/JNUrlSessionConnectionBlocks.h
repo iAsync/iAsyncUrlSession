@@ -5,7 +5,7 @@
 
 @protocol JNDownloadProgressInfo;
 
-typedef void(^JNProcessAuthenticationChallengeBlock)( NSURLAuthenticationChallenge* challenge, NS_CERTIFICATE_CHECK_COMPLETION_BLOCK  );
+typedef void(^JNProcessAuthenticationChallengeBlock)( NSURLAuthenticationChallenge* challenge, NSCertificateCheckCompletionBlock  );
 
 typedef void(^JNDownloadToTempFileFinished)( NSURL* tmpFileUrl, NSError* downloadError );
 typedef void(^JNDownloadToTempFileProgress)( id<JNDownloadProgressInfo> progressInfo );

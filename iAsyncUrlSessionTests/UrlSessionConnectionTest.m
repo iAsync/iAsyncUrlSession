@@ -137,7 +137,7 @@
     __block NSURLSessionAuthChallengeDisposition receivedDisposition;
 
     
-    NS_CERTIFICATE_CHECK_COMPLETION_BLOCK certificateCallback =
+    NSCertificateCheckCompletionBlock certificateCallback =
     ^void(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential *credential)
     {
         receivedDisposition = disposition;
@@ -169,7 +169,7 @@
     __block NSURLSessionAuthChallengeDisposition receivedDisposition;
     
     
-    NS_CERTIFICATE_CHECK_COMPLETION_BLOCK certificateCallback =
+    NSCertificateCheckCompletionBlock certificateCallback =
     ^void(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential *credential)
     {
         receivedDisposition = disposition;
