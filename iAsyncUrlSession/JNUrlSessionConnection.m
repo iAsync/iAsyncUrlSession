@@ -43,6 +43,10 @@
                                 httpRequest:( NSURLRequest* )httpRequest
                                   callbacks:( JNUrlSessionConnectionCallbacks* )callbacks
 {
+    NSParameterAssert( nil != sessionConfig );
+    NSParameterAssert( nil != callbackQueue );
+    NSParameterAssert( nil != httpRequest   );
+    
     self = [ super init ];
     if ( nil == self )
     {
@@ -74,6 +78,10 @@
     {
         return;
     }
+    
+    NSParameterAssert( nil != self->_session       );
+    NSParameterAssert( nil != self->_sessionConfig );
+    NSParameterAssert( nil != self->_httpRequest   );
     
     NSURLSessionDownloadTask* task = [ self->_session downloadTaskWithRequest: self->_httpRequest ];
     self.downloadTask = task;
@@ -253,7 +261,7 @@ completionHandler:( NS_CERTIFICATE_CHECK_COMPLETION_BLOCK )completionHandler
 +(NSURL*)moveFileToCaches:( NSURL* )tmpFileUrl
                     error:( NSError** )error
 {
-    // TODO : rewrite copypaste from Apple's example
+    // copypasted from Apple's example
     
     NSFileManager* fileManager = [ NSFileManager defaultManager ];
     
@@ -264,7 +272,9 @@ completionHandler:( NS_CERTIFICATE_CHECK_COMPLETION_BLOCK )completionHandler
     
     NSURL* downloadURL = tmpFileUrl;
     NSURL* originalURL = tmpFileUrl;
-    NSURL* destinationURL = [ cachesDirectory URLByAppendingPathComponent: [ originalURL lastPathComponent ] ];
+    
+    NSString* tempFileName = [ originalURL lastPathComponent ];
+    NSURL* destinationURL = [ cachesDirectory URLByAppendingPathComponent: tempFileName ];
     NSError* errorCopy = nil;
     
     [ fileManager removeItemAtURL: destinationURL

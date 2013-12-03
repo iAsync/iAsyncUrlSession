@@ -90,6 +90,42 @@
 
 #pragma mark -
 #pragma mark Https Auth callback
+-(void)testSessionConfigIsRequired
+{
+    XCTAssertThrows
+    (
+        [ [ JNUrlSessionConnection alloc ] initWithSessionConfiguration: nil
+                                                   sessionCallbackQueue: [ NSOperationQueue currentQueue ]
+                                                            httpRequest: self->_request
+                                                              callbacks: self->_nilCallbacks ],
+         @"session config is required"
+     );
+}
+
+-(void)testSessionQueueIsRequired
+{
+    XCTAssertThrows
+    (
+     [ [ JNUrlSessionConnection alloc ] initWithSessionConfiguration: self->_config
+                                                sessionCallbackQueue: nil
+                                                         httpRequest: self->_request
+                                                           callbacks: self->_nilCallbacks ],
+     @"session config is required"
+     );
+}
+
+-(void)testHttpRequestIsRequired
+{
+    XCTAssertThrows
+    (
+     [ [ JNUrlSessionConnection alloc ] initWithSessionConfiguration: self->_config
+                                                sessionCallbackQueue: [ NSOperationQueue currentQueue ]
+                                                         httpRequest: nil
+                                                           callbacks: self->_nilCallbacks ],
+     @"session config is required"
+    );
+}
+
 -(void)testAuthenticateBlockIsOptional
 {
     JNUrlSessionConnection* connection =
@@ -173,7 +209,7 @@
 {
     JNUrlSessionConnection* connection = self->_connectionWithNilCallbacks;
     
-    XCTAssertThrows
+    XCTAssertNoThrow
     (
         objc_msgSend
         (
@@ -238,7 +274,7 @@
 {
     JNUrlSessionConnection* connection = self->_connectionWithNilCallbacks;
     
-    XCTAssertThrows
+    XCTAssertNoThrow
     (
      objc_msgSend
      (
@@ -426,6 +462,17 @@
     
     XCTAssertTrue( [ receivedProgressInfo downloadedBytesCount ] == totalBytesWritten, @"downloadedBytesCount mismatch" );
     XCTAssertTrue( [ receivedProgressInfo totalBytesCount ] == totalBytesExpectedToWrite, @"totalBytesExpectedToWrite mismatch" );
+}
+
+#pragma mark -
+#pragma mark Cleanup
+-(void)testCancelledConnectionShouldNotStartAgain
+{
+    JNUrlSessionConnection* connection = self->_connectionWithNilCallbacks;
+    [ connection start ];
+    [ connection cancel ];
+    
+    XCTAssertThrows( [ connection start ], @"connection cannot be restarted" );
 }
 
 
