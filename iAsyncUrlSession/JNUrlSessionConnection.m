@@ -105,6 +105,15 @@
 totalBytesWritten:(int64_t)totalBytesWritten
 totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite
 {
+#if DEBUG
+    NSLog(@"----------[%@]----------", NSStringFromSelector( _cmd ) );
+    NSLog(@"bytesWritten              : %@", [ @( bytesWritten ) stringValue] );
+    NSLog(@"totalBytesWritten         : %@", [ @( totalBytesWritten ) stringValue] );
+    NSLog(@"totalBytesExpectedToWrite : %@", [ @( totalBytesExpectedToWrite ) stringValue] );
+    NSLog(@"taskLength                : %@", [ @( [ downloadTask  countOfBytesReceived ] ) stringValue ] );
+    NSLog(@"--------------------" );
+#endif
+    
     JNDownloadToTempFileProgress progressBlock = self->_callbacks.progressBlock;
     if ( nil == progressBlock )
     {
@@ -173,6 +182,8 @@ didCompleteWithError:(NSError *)error
         return;
     }
     
+    NSLog( @"[%@] Error : %@", NSStringFromSelector(_cmd), error );
+    
     JNDownloadToTempFileFinished completionBlock = self->_callbacks.completionBlock;
     if ( nil != completionBlock )
     {
@@ -194,6 +205,8 @@ didBecomeInvalidWithError:(NSError *)error
         
         return;
     }
+    
+    NSLog( @"[%@] Error : %@", NSStringFromSelector(_cmd), error );
     
     JNDownloadToTempFileFinished completionBlock = self->_callbacks.completionBlock;
     if ( nil != completionBlock )
