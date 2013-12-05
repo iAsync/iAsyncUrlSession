@@ -183,6 +183,7 @@ didCompleteWithError:(NSError *)error
     }
     
     NSLog( @"[%@] Error : %@", NSStringFromSelector(_cmd), error );
+    NSLog( @"[%@] Request : %@", NSStringFromSelector(_cmd), self->_httpRequest );
     
     JNDownloadToTempFileFinished completionBlock = self->_callbacks.completionBlock;
     if ( nil != completionBlock )
@@ -207,6 +208,7 @@ didBecomeInvalidWithError:(NSError *)error
     }
     
     NSLog( @"[%@] Error : %@", NSStringFromSelector(_cmd), error );
+    NSLog( @"[%@] Request : %@", NSStringFromSelector(_cmd), self->_httpRequest );
     
     JNDownloadToTempFileFinished completionBlock = self->_callbacks.completionBlock;
     if ( nil != completionBlock )
