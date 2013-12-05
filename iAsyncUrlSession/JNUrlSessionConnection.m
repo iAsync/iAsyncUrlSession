@@ -44,7 +44,6 @@
                                   callbacks:( JNUrlSessionConnectionCallbacks* )callbacks
 {
     NSParameterAssert( nil != sessionConfig );
-    NSParameterAssert( nil != callbackQueue );
     NSParameterAssert( nil != httpRequest   );
     
     self = [ super init ];

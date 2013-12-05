@@ -104,7 +104,7 @@
 
 -(void)testSessionQueueIsRequired
 {
-    XCTAssertThrows
+    XCTAssertNoThrow
     (
      [ [ JNUrlSessionConnection alloc ] initWithSessionConfiguration: self->_config
                                                 sessionCallbackQueue: nil

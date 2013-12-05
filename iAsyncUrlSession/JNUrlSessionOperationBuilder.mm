@@ -27,7 +27,7 @@
 +(JFFAsyncOperation)asyncTempFileDownloadWithRequest:( NSURLRequest* )request
                                            authBlock:( JNProcessAuthenticationChallengeBlock )authBlock
                                        sessionConfig:( NSURLSessionConfiguration* )sessionConfig
-                             urlSessionCallbackQueue:( NSOperationQueue* )queue;
+                             urlSessionCallbackQueue:( NSOperationQueue* )queue
 {
     JFFAsyncOperationInstanceBuilder adapterBuilder = ^id< JFFAsyncOperationInterface >(void)
     {
