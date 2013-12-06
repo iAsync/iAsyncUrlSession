@@ -3,6 +3,8 @@
 #include "iAsyncUrlSessionDefines.h"
 
 #import "JNDownloadProgressInfoPOD.h"
+#import "JNUrlSessionConnectionError.h"
+#import "JNUrlSessionFileSystemError.h"
 
 @interface JNUrlSessionConnection() <NSURLSessionDelegate, NSURLSessionDownloadDelegate>
 
@@ -159,9 +161,17 @@ didFinishDownloadingToURL:(NSURL *)location
     JNDownloadToTempFileFinished completionBlock = self->_callbacks.completionBlock;
     if ( nil != completionBlock )
     {
-        completionBlock( tmpFileUrl, nil );
+        if ( nil == copyFileError )
+        {
+            completionBlock( tmpFileUrl, nil );
+        }
+        else
+        {
+            JNUrlSessionFileSystemError* wrappedError = [ [ JNUrlSessionFileSystemError alloc ] initWithUnderlyingError: copyFileError ];
+            completionBlock( nil, wrappedError );
+        }
     }
-    
+
     [ self cleanup ];
 }
 
@@ -187,7 +197,9 @@ didCompleteWithError:(NSError *)error
     JNDownloadToTempFileFinished completionBlock = self->_callbacks.completionBlock;
     if ( nil != completionBlock )
     {
-        completionBlock( nil, error );
+        JNUrlSessionConnectionError* wrappedError = [ [ JNUrlSessionConnectionError alloc ] initWithUnderlyingError: error ];
+        
+        completionBlock( nil, wrappedError );
     }
     
     [ self cleanup ];
@@ -212,7 +224,8 @@ didBecomeInvalidWithError:(NSError *)error
     JNDownloadToTempFileFinished completionBlock = self->_callbacks.completionBlock;
     if ( nil != completionBlock )
     {
-        completionBlock( nil, error );
+        JNUrlSessionConnectionError* wrappedError = [ [ JNUrlSessionConnectionError alloc ] initWithUnderlyingError: error ];
+        completionBlock( nil, wrappedError );
     }
     
     [ self cleanup ];

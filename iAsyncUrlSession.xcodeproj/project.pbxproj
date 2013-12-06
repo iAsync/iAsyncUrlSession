@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E368F79185229B70090541B /* JNUrlSessionConnectionError.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E368F76185229B70090541B /* JNUrlSessionConnectionError.m */; };
+		7E368F7A185229B70090541B /* JNUrlSessionConnectionError.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E368F76185229B70090541B /* JNUrlSessionConnectionError.m */; };
+		7E368F7B185229B70090541B /* JNUrlSessionFileSystemError.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E368F78185229B70090541B /* JNUrlSessionFileSystemError.m */; };
+		7E368F7C185229B70090541B /* JNUrlSessionFileSystemError.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E368F78185229B70090541B /* JNUrlSessionFileSystemError.m */; };
+		7E368F7F185229D70090541B /* JNAbstractUrlSessionError.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E368F7E185229D70090541B /* JNAbstractUrlSessionError.m */; };
+		7E368F80185229D70090541B /* JNAbstractUrlSessionError.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E368F7E185229D70090541B /* JNAbstractUrlSessionError.m */; };
 		7E3DF2981847369600230731 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E3DF2971847369600230731 /* Foundation.framework */; };
 		7E3DF29D1847369600230731 /* iAsyncUrlSession.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7E3DF29C1847369600230731 /* iAsyncUrlSession.h */; };
 		7E3DF2A61847369600230731 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E3DF2A51847369600230731 /* XCTest.framework */; };
@@ -154,6 +160,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7E368F75185229B70090541B /* JNUrlSessionConnectionError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNUrlSessionConnectionError.h; sourceTree = "<group>"; };
+		7E368F76185229B70090541B /* JNUrlSessionConnectionError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNUrlSessionConnectionError.m; sourceTree = "<group>"; };
+		7E368F77185229B70090541B /* JNUrlSessionFileSystemError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNUrlSessionFileSystemError.h; sourceTree = "<group>"; };
+		7E368F78185229B70090541B /* JNUrlSessionFileSystemError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNUrlSessionFileSystemError.m; sourceTree = "<group>"; };
+		7E368F7D185229D70090541B /* JNAbstractUrlSessionError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNAbstractUrlSessionError.h; sourceTree = "<group>"; };
+		7E368F7E185229D70090541B /* JNAbstractUrlSessionError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNAbstractUrlSessionError.m; sourceTree = "<group>"; };
 		7E3DF2941847369600230731 /* libiAsyncUrlSession.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libiAsyncUrlSession.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E3DF2971847369600230731 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7E3DF29B1847369600230731 /* iAsyncUrlSession-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iAsyncUrlSession-Prefix.pch"; sourceTree = "<group>"; };
@@ -219,6 +231,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7E368F74185229B70090541B /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				7E368F7D185229D70090541B /* JNAbstractUrlSessionError.h */,
+				7E368F7E185229D70090541B /* JNAbstractUrlSessionError.m */,
+				7E368F75185229B70090541B /* JNUrlSessionConnectionError.h */,
+				7E368F76185229B70090541B /* JNUrlSessionConnectionError.m */,
+				7E368F77185229B70090541B /* JNUrlSessionFileSystemError.h */,
+				7E368F78185229B70090541B /* JNUrlSessionFileSystemError.m */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 		7E3DF28B1847369600230731 = {
 			isa = PBXGroup;
 			children = (
@@ -270,6 +295,7 @@
 				7ECBF31C1848920700256A05 /* JNUrlSessionAsyncOperation.m */,
 				7E40083C1848D4A900927C9B /* JNUrlSessionOperationBuilder.h */,
 				7E40083D1848D4A900927C9B /* JNUrlSessionOperationBuilder.mm */,
+				7E368F74185229B70090541B /* Error */,
 			);
 			path = iAsyncUrlSession;
 			sourceTree = "<group>";
@@ -555,6 +581,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E3DF3621847377A00230731 /* JNUrlSessionConnection.m in Sources */,
+				7E368F79185229B70090541B /* JNUrlSessionConnectionError.m in Sources */,
+				7E368F7B185229B70090541B /* JNUrlSessionFileSystemError.m in Sources */,
+				7E368F7F185229D70090541B /* JNAbstractUrlSessionError.m in Sources */,
 				7ECBF31D1848920700256A05 /* JNUrlSessionAsyncOperation.m in Sources */,
 				7E40083E1848D4A900927C9B /* JNUrlSessionOperationBuilder.mm in Sources */,
 				7E9CB8C6184765530091D0AE /* JNDownloadProgressInfoPOD.m in Sources */,
@@ -577,8 +606,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E3E2D09184C95EC0000145D /* JNUrlSessionConnection.m in Sources */,
+				7E368F7C185229B70090541B /* JNUrlSessionFileSystemError.m in Sources */,
+				7E368F7A185229B70090541B /* JNUrlSessionConnectionError.m in Sources */,
 				7E3E2D0C184C95EC0000145D /* JNDownloadProgressInfoPOD.m in Sources */,
 				7E3E2D0D184C95EC0000145D /* JNUrlSessionConnectionCallbacks.m in Sources */,
+				7E368F80185229D70090541B /* JNAbstractUrlSessionError.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

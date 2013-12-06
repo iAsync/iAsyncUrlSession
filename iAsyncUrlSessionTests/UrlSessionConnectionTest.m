@@ -244,8 +244,11 @@
         connection.session, nil, mockError
     );
 
-    XCTAssertTrue( completionError == mockError, @"error pointers mismatch" );
-    XCTAssertEqualObjects( completionError, mockError, @"error object mismatch" );
+    XCTAssertTrue( [ completionError isMemberOfClass: [ JNUrlSessionConnectionError class ] ], @"error class mismatch" );
+    
+    JNUrlSessionConnectionError* castedError = (JNUrlSessionConnectionError*)completionError;
+    XCTAssertTrue( castedError.underlyingError == mockError, @"error pointers mismatch" );
+    XCTAssertEqualObjects( castedError.underlyingError, mockError, @"error object mismatch" );
 
     XCTAssertNil( completionResult, @"nil result expected" );
 }
@@ -310,8 +313,11 @@
      connection.session, mockError
      );
     
-    XCTAssertTrue( completionError == mockError, @"error pointers mismatch" );
-    XCTAssertEqualObjects( completionError, mockError, @"error object mismatch" );
+    XCTAssertTrue( [ completionError isMemberOfClass: [ JNUrlSessionConnectionError class ] ], @"error class mismatch" );
+    JNUrlSessionConnectionError* castedError = (JNUrlSessionConnectionError*)completionError;
+    
+    XCTAssertTrue( castedError.underlyingError == mockError, @"error pointers mismatch" );
+    XCTAssertEqualObjects( castedError.underlyingError, mockError, @"error object mismatch" );
     
     XCTAssertNil( completionResult, @"nil result expected" );
 }

@@ -6,5 +6,7 @@
 #import <iAsyncUrlSession/JNUrlSessionConnectionBlocks.h>
 
 #import <iAsyncUrlSession/JNUrlSessionConnection.h>
+#import <iAsyncUrlSession/Error/JNUrlSessionConnectionError.h>
+#import <iAsyncUrlSession/Error/JNUrlSessionFileSystemError.h>
 
 #endif
