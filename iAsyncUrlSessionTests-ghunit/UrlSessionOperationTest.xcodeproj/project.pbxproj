@@ -26,6 +26,8 @@
 		7E3E2D6D184CAA480000145D /* libiAsyncUrlSession-ConnectionOnly.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E3E2D59184CA9E10000145D /* libiAsyncUrlSession-ConnectionOnly.a */; };
 		7E3E2D70184CABFB0000145D /* ReadmeDownloadConnectionAsyncTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E3E2D6F184CABFB0000145D /* ReadmeDownloadConnectionAsyncTest.m */; };
 		7E4E8600184CAFED00967D25 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 7E6BAC081848E0C1007FBEAC /* README.md */; };
+		7E5EE259185D013E00E185B8 /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E5EE258185D013E00E185B8 /* GHUnitIOS.framework */; };
+		7E5EE25A185D013E00E185B8 /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E5EE258185D013E00E185B8 /* GHUnitIOS.framework */; };
 		7E6BABF61848DD6D007FBEAC /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E6BABF51848DD6D007FBEAC /* GHUnitIOS.framework */; };
 		7E6BAC041848DFE3007FBEAC /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E6BAC031848DFE3007FBEAC /* libc++.dylib */; };
 		7E6BAC061848E03B007FBEAC /* ReadmeDownloadAsyncTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6BAC051848E03B007FBEAC /* ReadmeDownloadAsyncTest.m */; };
@@ -264,6 +266,7 @@
 		7E3E2D4E184CA9E10000145D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7E3E2D50184CA9E10000145D /* UrlSessionConnectionTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UrlSessionConnectionTestTests.m; sourceTree = "<group>"; };
 		7E3E2D6F184CABFB0000145D /* ReadmeDownloadConnectionAsyncTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadmeDownloadConnectionAsyncTest.m; sourceTree = "<group>"; };
+		7E5EE258185D013E00E185B8 /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GHUnitIOS.framework; sourceTree = "<group>"; };
 		7E6BABB01848DCB5007FBEAC /* JFFUtils.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JFFUtils.xcodeproj; path = ../../JFFLibrary/lib/JFFUtils/JFFUtils.xcodeproj; sourceTree = "<group>"; };
 		7E6BABC51848DCBE007FBEAC /* JFFTestTools.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JFFTestTools.xcodeproj; path = ../../JFFLibrary/lib/JFFTestTools/JFFTestTools.xcodeproj; sourceTree = "<group>"; };
 		7E6BABCB1848DCDB007FBEAC /* JFFAsyncOperations.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JFFAsyncOperations.xcodeproj; path = ../../JFFLibrary/lib/JFFAsyncOperations/JFFAsyncOperations.xcodeproj; sourceTree = "<group>"; };
@@ -301,6 +304,7 @@
 				7E3E2D6D184CAA480000145D /* libiAsyncUrlSession-ConnectionOnly.a in Frameworks */,
 				7E3E2D6A184CAA300000145D /* GHUnitIOS.framework in Frameworks */,
 				7E3E2D2A184CA9E00000145D /* CoreGraphics.framework in Frameworks */,
+				7E5EE25A185D013E00E185B8 /* GHUnitIOS.framework in Frameworks */,
 				7E3E2D2B184CA9E00000145D /* UIKit.framework in Frameworks */,
 				7E3E2D29184CA9E00000145D /* Foundation.framework in Frameworks */,
 			);
@@ -329,6 +333,7 @@
 				7E6BAC041848DFE3007FBEAC /* libc++.dylib in Frameworks */,
 				7E92602E1848DB6900E98027 /* CoreGraphics.framework in Frameworks */,
 				7E6BABF61848DD6D007FBEAC /* GHUnitIOS.framework in Frameworks */,
+				7E5EE259185D013E00E185B8 /* GHUnitIOS.framework in Frameworks */,
 				7E9260301848DB6900E98027 /* UIKit.framework in Frameworks */,
 				7E92602C1848DB6900E98027 /* Foundation.framework in Frameworks */,
 			);
@@ -486,6 +491,7 @@
 		7E92602A1848DB6900E98027 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7E5EE258185D013E00E185B8 /* GHUnitIOS.framework */,
 				7E2E7ED31848E426002691D3 /* libz.dylib */,
 				7EA0AABE1848E362003247B4 /* libJFFAsyncOperations.a */,
 				7EA0AABF1848E362003247B4 /* libJFFNetwork.a */,
@@ -1015,7 +1021,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Volumes/untitled/projects/frameworks,
+					../../../frameworks,
+					.,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UrlSessionConnectionTest/UrlSessionConnectionTest-Prefix.pch";
@@ -1037,7 +1044,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Volumes/untitled/projects/frameworks,
+					../../../frameworks,
+					.,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UrlSessionConnectionTest/UrlSessionConnectionTest-Prefix.pch";
@@ -1182,7 +1190,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Volumes/untitled/projects/frameworks,
+					../../../frameworks,
+					.,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UrlSessionOperationTest/UrlSessionOperationTest-Prefix.pch";
@@ -1205,7 +1214,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Volumes/untitled/projects/frameworks,
+					../../../frameworks,
+					.,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UrlSessionOperationTest/UrlSessionOperationTest-Prefix.pch";
