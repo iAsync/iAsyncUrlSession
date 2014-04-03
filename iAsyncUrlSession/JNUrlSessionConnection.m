@@ -31,6 +31,8 @@
 
 -(void)dealloc
 {
+    NSLog( @"[dealloc] JNUrlSessionConnection  : download %@", self->_httpRequest.URL );
+    
     [ self cleanup ];
 }
 
@@ -88,10 +90,15 @@
     self.downloadTask = task;
 
     [ task resume ];
+    
+    NSLog( @"[BEGIN] JNUrlSessionConnection  : download %@", self->_httpRequest.URL );
+    NSLog( @"Cookies : %@", self->_sessionConfig.HTTPCookieStorage.cookies );
 }
 
 -(void)cancel
 {
+    NSLog( @"[CANCEL] JNUrlSessionConnection  : download %@", self->_httpRequest.URL );
+    
     [ self->_downloadTask cancel ];
     [ self cleanup ];
 }
@@ -137,6 +144,8 @@ didFinishDownloadingToURL:(NSURL *)location
 {
     NSParameterAssert( nil != location );
 
+    NSLog( @"[END] JNUrlSessionConnection  : download %@", self->_httpRequest.URL );
+    
     if ( self->_shouldCopyTmpFileToCaches )
     {
         // @adk : it should be safe enough to invoke "move" on main thread.

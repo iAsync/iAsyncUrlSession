@@ -2,6 +2,8 @@
 
 #import "JNUrlSessionConnection.h"
 
+#define NSLog(...)
+
 @interface JNUrlSessionAsyncOperation()
 
 @property ( nonatomic ) JNUrlSessionConnection* connection;
@@ -15,6 +17,8 @@
 #pragma mark Object Lifecycle
 -(void)dealloc
 {
+    NSLog( @"JNUrlSessionAsyncOperation.dealloc()" );
+    
     [ self->_connection cancel ];
     self->_connection = nil;
     self->_cancelHandler = nil;
@@ -126,18 +130,30 @@
 
 -(void)cancel:(BOOL)canceled
 {
+    NSLog(@"[BEGIN] JNUrlSessionAsyncOperation.cancel()");
     if ( canceled )
     {
+        NSLog(@"===[BEGIN] cancel connection");
         [ self->_connection cancel ];
+        NSLog(@"===[END] cancel connection");
     }
 
+    NSLog( @"checking self->_cancelHandler ..." );
     if ( nil != self->_cancelHandler )
     {
-        self->_cancelHandler( canceled );
+        NSLog(@"===[BEGIN] invoke cancelHandler");
+        JFFAsyncOperationInterfaceCancelHandler cancelCallbackCopy = [ self->_cancelHandler copy ];
+        cancelCallbackCopy( canceled );
+        NSLog(@"===[END] invoke cancelHandler");
     }
 
-    self->_connection = nil;
+    NSLog(@"setting cancelHandler() to nil...");
     self->_cancelHandler = nil;
+    
+    NSLog(@"setting connection to nil...");
+    self->_connection = nil;
+    
+    NSLog(@"[end] JNUrlSessionAsyncOperation.cancel()");
 }
 
 @end
