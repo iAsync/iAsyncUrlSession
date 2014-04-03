@@ -33,6 +33,8 @@
 		7E9CB8C6184765530091D0AE /* JNDownloadProgressInfoPOD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9CB8C5184765530091D0AE /* JNDownloadProgressInfoPOD.m */; };
 		7ECBF31D1848920700256A05 /* JNUrlSessionAsyncOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECBF31C1848920700256A05 /* JNUrlSessionAsyncOperation.m */; };
 		7ED50165184894D100289520 /* InitSessionAsyncOperationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED50164184894D100289520 /* InitSessionAsyncOperationTest.m */; };
+		7EFBFF4C189119BE00A3250D /* libJFFUtils.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECBF310184891A500256A05 /* libJFFUtils.a */; };
+		7EFBFF4D189119C400A3250D /* libJFFAsyncOperations.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECBF2FF1848919900256A05 /* libJFFAsyncOperations.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,12 +129,19 @@
 			remoteGlobalIDString = CE444A1C1608609100DD85B0;
 			remoteInfo = JFFUtilsTest;
 		};
-		7ECBF319184891A500256A05 /* PBXContainerItemProxy */ = {
+		7EFBFF4E189119CC00A3250D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7ECBF304184891A400256A05 /* JFFUtils.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 7ED3CB1516E6387B00E5A00F;
-			remoteInfo = "JFFUtilsTest-CI";
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = JFFUtils;
+		};
+		7EFBFF50189119D100A3250D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7ECBF2F71848919900256A05 /* JFFAsyncOperations.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = JFFAsyncOperations;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -186,6 +195,7 @@
 		7E40083C1848D4A900927C9B /* JNUrlSessionOperationBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNUrlSessionOperationBuilder.h; sourceTree = "<group>"; };
 		7E40083D1848D4A900927C9B /* JNUrlSessionOperationBuilder.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JNUrlSessionOperationBuilder.mm; sourceTree = "<group>"; };
 		7E670E0E18473E9500339D12 /* JNUrlSessionBlocks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JNUrlSessionBlocks.h; sourceTree = "<group>"; };
+		7E989B36188FC2CF00EFA2FF /* libXCode5gcovPatch.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libXCode5gcovPatch.a; sourceTree = "<group>"; };
 		7E99CE271850855C008CB31E /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		7E9CB8C118474B420091D0AE /* JNUrlSessionConnectionBlocks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JNUrlSessionConnectionBlocks.h; sourceTree = "<group>"; };
 		7E9CB8C218474F3E0091D0AE /* iAsyncUrlSessionDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iAsyncUrlSessionDefines.h; sourceTree = "<group>"; };
@@ -213,6 +223,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EFBFF4D189119C400A3250D /* libJFFAsyncOperations.a in Frameworks */,
+				7EFBFF4C189119BE00A3250D /* libJFFUtils.a in Frameworks */,
 				7E99CE281850855C008CB31E /* libc++.dylib in Frameworks */,
 				7E3DF2A61847369600230731 /* XCTest.framework in Frameworks */,
 				7E3DF2AC1847369600230731 /* libiAsyncUrlSession.a in Frameworks */,
@@ -247,6 +259,7 @@
 		7E3DF28B1847369600230731 = {
 			isa = PBXGroup;
 			children = (
+				7E989B36188FC2CF00EFA2FF /* libXCode5gcovPatch.a */,
 				7E3DF2991847369600230731 /* iAsyncUrlSession */,
 				7E3DF2AD1847369600230731 /* iAsyncUrlSessionTests */,
 				7E3DF2961847369600230731 /* Frameworks */,
@@ -367,8 +380,7 @@
 				7ECBF312184891A500256A05 /* libJFFUtilsMacOS.a */,
 				7ECBF314184891A500256A05 /* libJFFUtils-clang.a */,
 				7ECBF316184891A500256A05 /* JFFUtilsFW.framework */,
-				7ECBF318184891A500256A05 /* JFFUtilsTest.octest */,
-				7ECBF31A184891A500256A05 /* JFFUtilsTest-CI.octest */,
+				7ECBF318184891A500256A05 /* JFFUtilsTest.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -404,6 +416,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				7EFBFF51189119D100A3250D /* PBXTargetDependency */,
+				7EFBFF4F189119CC00A3250D /* PBXTargetDependency */,
 				7E3DF2AB1847369600230731 /* PBXTargetDependency */,
 			);
 			name = iAsyncUrlSessionTests;
@@ -548,18 +562,11 @@
 			remoteRef = 7ECBF315184891A500256A05 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		7ECBF318184891A500256A05 /* JFFUtilsTest.octest */ = {
+		7ECBF318184891A500256A05 /* JFFUtilsTest.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = JFFUtilsTest.octest;
+			path = JFFUtilsTest.xctest;
 			remoteRef = 7ECBF317184891A500256A05 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		7ECBF31A184891A500256A05 /* JFFUtilsTest-CI.octest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "JFFUtilsTest-CI.octest";
-			remoteRef = 7ECBF319184891A500256A05 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -621,6 +628,16 @@
 			isa = PBXTargetDependency;
 			target = 7E3DF2931847369600230731 /* iAsyncUrlSession */;
 			targetProxy = 7E3DF2AA1847369600230731 /* PBXContainerItemProxy */;
+		};
+		7EFBFF4F189119CC00A3250D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JFFUtils;
+			targetProxy = 7EFBFF4E189119CC00A3250D /* PBXContainerItemProxy */;
+		};
+		7EFBFF51189119D100A3250D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JFFAsyncOperations;
+			targetProxy = 7EFBFF50189119D100A3250D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -789,6 +806,10 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "iAsyncUrlSessionTests/iAsyncUrlSessionTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Volumes/untitled/projects/lib-third-party/iAsyncUrlSession",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -806,6 +827,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iAsyncUrlSession/iAsyncUrlSession-Prefix.pch";
 				INFOPLIST_FILE = "iAsyncUrlSessionTests/iAsyncUrlSessionTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Volumes/untitled/projects/lib-third-party/iAsyncUrlSession",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -937,6 +962,16 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "iAsyncUrlSessionTests/iAsyncUrlSessionTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Volumes/untitled/projects/lib-third-party/iAsyncUrlSession",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-lXCode5gcovPatch",
+					"-L.",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;
 			};
