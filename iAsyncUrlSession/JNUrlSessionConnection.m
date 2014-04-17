@@ -139,7 +139,7 @@ totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite
 }
 
 -(void)URLSession:(NSURLSession *)session
-      downloadTask:(NSURLSessionDownloadTask *)downloadTask
+     downloadTask:(NSURLSessionDownloadTask *)downloadTask
 didFinishDownloadingToURL:(NSURL *)location
 {
     NSParameterAssert( nil != location );

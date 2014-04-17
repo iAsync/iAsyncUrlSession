@@ -2,7 +2,7 @@
 
 @protocol JNDownloadProgressInfo <NSObject>
 
--(uint64_t)downloadedBytesCount;
--(uint64_t)totalBytesCount;
+-(int64_t)downloadedBytesCount;
+-(int64_t)totalBytesCount;
 
 @end
