@@ -3,7 +3,7 @@
 
 @interface JNDownloadProgressInfoPOD : NSObject<JNDownloadProgressInfo>
 
-@property ( nonatomic ) uint64_t downloadedBytesCount;
-@property ( nonatomic ) uint64_t totalBytesCount     ;
+@property ( nonatomic ) int64_t downloadedBytesCount;
+@property ( nonatomic ) int64_t totalBytesCount     ;
 
 @end
